@@ -56,7 +56,7 @@ Text.defaultProps = {
   textAlign: 'left',
 };
 
-Text.PropTypes = {
+Text.propTypes = {
   textSize: PropTypes.string,
   textColor: PropTypes.string,
   textType: PropTypes.string,

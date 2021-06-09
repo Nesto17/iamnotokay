@@ -2,7 +2,8 @@
     width: 100vw;
     height: 110px;
 
-    &:hover {
-        background: chocolate;
-    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
