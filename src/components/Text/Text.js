@@ -21,7 +21,7 @@ const Text = ({ textSize, textColor, textType, textAlign, otherStyles, children 
       break;
   }
 
-  const _fontWeight = textSize === 'sm' ? 400 : textSize === 'md' ? 500 : 700;
+  const _fontWeight = textSize === 'sm' ? 300 : textSize === 'md' ? 500 : 700;
 
   let _fontFamily;
   switch (textType) {

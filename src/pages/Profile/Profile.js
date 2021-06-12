@@ -12,6 +12,8 @@ function Profile() {
   const user = useContext(UserContext);
   const history = useHistory();
 
+  console.log(user);
+
   const handleClick = () => {
     firebase
       .auth()
@@ -24,12 +26,12 @@ function Profile() {
       });
   };
 
-  useEffect(() => {
-    const joseph = localStorage.getItem('authUser');
-    console.log('user', joseph);
+  // useEffect(() => {
+  //   const joseph = JSON.parse(localStorage.getItem('authUser'));
+  //   console.log('user', joseph);
 
-    console.log('UserContext', user);
-  }, []);
+  //   console.log('UserContext', user.email);
+  // }, []);
 
   return (
     <div className='profile__wrapper'>

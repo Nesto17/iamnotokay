@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { FiBook } from 'react-icons/fi';
 
@@ -7,17 +7,27 @@ import './Navbar.scss';
 import * as ROUTE from '../../constants/routes';
 import { Text } from '..';
 import useScreenSize from '../../hooks/useScreenSize';
+import UserContext from '../../utils/userContext';
 
 function Navbar() {
   const [searchValue, setSearchValue] = useState('');
   const location = useLocation();
-  const screenSize = useScreenSize();
+  const user = useContext(UserContext);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log(location);
     return null;
+  };
+
+  const goToProfile = () => {
+    if (!user) {
+      history.push(ROUTE.LOG_IN);
+    } else {
+      history.push(ROUTE.PROFILE);
+    }
   };
 
   return (
@@ -40,7 +50,9 @@ function Navbar() {
       <IconContext.Provider
         value={{ color: 'white', size: '30px', className: 'navbar__profile' }}
       >
-        <FiBook />
+        <div onClick={goToProfile}>
+          <FiBook />
+        </div>
       </IconContext.Provider>
     </div>
   );
