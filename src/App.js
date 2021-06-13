@@ -11,12 +11,13 @@ import Profile from './pages/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Write from './pages/Write/Write';
 
 function App() {
   const { user } = useAuth();
 
   return (
-    <UserContext.Provider value={ user }>
+    <UserContext.Provider value={user}>
       <Router>
         <div className='wrapper'>
           <Navbar />
@@ -25,6 +26,7 @@ function App() {
             <Route path={ROUTE.PROFILE} exact component={Profile} />
             <Route path={ROUTE.LOG_IN} exact component={Login} />
             <Route path={ROUTE.REGISTER} exact component={Register} />
+            <Route path={ROUTE.WRITE} exact component={Write} />
           </Switch>
         </div>
       </Router>

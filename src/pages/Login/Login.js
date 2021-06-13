@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router';
+import React, { useState, useContext, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { Eye, EyeOff } from 'react-feather';
 
 import './Login.scss';
@@ -10,6 +10,7 @@ import { Text } from '../../components';
 function Login() {
   const firebase = useContext(FirebaseContext);
   const history = useHistory();
+  const location = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
@@ -20,13 +21,18 @@ function Login() {
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+  // useEffect(() => {
+  //   console.log(location);
+  //   console.log(history);
+  // }, []);
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
 
-      history.push(ROUTE.PROFILE);
+      history.push(location.state.intendedPage);
     } catch (error) {
       const errorPrompt = error.code.split('/')[1];
 
@@ -66,14 +72,14 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleLogin} className='login__wrapper' autoComplete={false}>
+    <form onSubmit={handleLogin} className='login__wrapper' autoComplete='off'>
       <div className='login__container'>
         <Text
           textSize='lg'
           textType='basic'
           textColor='#000'
           textAlign='center'
-          otherStyles={{marginBottom: '30px'}}
+          otherStyles={{ marginBottom: '30px' }}
         >
           Lorem ipsum dolor
         </Text>
@@ -82,7 +88,7 @@ function Login() {
           textType='basic'
           textColor='#000'
           textAlign='center'
-          otherStyles={{marginBottom: '40px'}}
+          otherStyles={{ marginBottom: '40px' }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
           porta, libero vel porttitor accumsan
@@ -99,7 +105,7 @@ function Login() {
           textSize='sm'
           textType='basic'
           textColor='#FF2727'
-          otherStyles={{alignSelf: 'flex-start', marginBottom: '20px'}}
+          otherStyles={{ alignSelf: 'flex-start', marginBottom: '20px' }}
         >
           {error.emailError}
         </Text>
@@ -114,19 +120,39 @@ function Login() {
             className='login__input--icon'
             onClick={() => setIsPasswordHidden(!isPasswordHidden)}
           >
-            {isPasswordHidden ? <Eye strokeWidth={1} /> : <EyeOff strokeWidth={1} />}
+            {isPasswordHidden ? (
+              <Eye strokeWidth={1} />
+            ) : (
+              <EyeOff strokeWidth={1} />
+            )}
           </div>
         </div>
         <Text
           textSize='sm'
           textType='basic'
           textColor='#FF2727'
-          otherStyles={{alignSelf: 'flex-start', marginBottom: '20px'}}
+          otherStyles={{ alignSelf: 'flex-start', marginBottom: '20px' }}
         >
           {error.passwordError}
         </Text>
 
-        <button className='login__submit' type='submit'>Log In</button>
+        <button className='login__submit' type='submit'>
+          Log In
+        </button>
+        <Text textSize='sm' textType='basic'>
+          Don't have an account yet?
+        </Text>
+        <button
+          onClick={() =>
+            history.push({
+              pathname: ROUTE.REGISTER,
+              state: { intendedPage: location.state.intendedPage },
+            })
+          }
+          className='login__switch'
+        >
+          Register
+        </button>
       </div>
     </form>
   );

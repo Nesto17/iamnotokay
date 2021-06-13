@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { FiBook } from 'react-icons/fi';
+import { User } from 'react-feather';
 
 import './Navbar.scss';
 import * as ROUTE from '../../constants/routes';
 import { Text } from '..';
-import useScreenSize from '../../hooks/useScreenSize';
 import UserContext from '../../utils/userContext';
 
 function Navbar() {
@@ -14,6 +13,23 @@ function Navbar() {
   const location = useLocation();
   const user = useContext(UserContext);
   const history = useHistory();
+
+  useEffect(() => {
+    if (checkLocation()) {
+      if (user) return;
+
+      history.push(ROUTE.HOMEPAGE);
+    }
+  }, [user, history, location]);
+
+  const checkLocation = () => {
+    if (
+      location.pathname !== ROUTE.HOMEPAGE &&
+      location.pathname !== ROUTE.LOG_IN &&
+      location.pathname !== ROUTE.REGISTER
+    )
+      return true;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +40,10 @@ function Navbar() {
 
   const goToProfile = () => {
     if (!user) {
-      history.push(ROUTE.LOG_IN);
+      history.push({
+        pathname: ROUTE.LOG_IN,
+        state: { intendedPage: ROUTE.PROFILE },
+      });
     } else {
       history.push(ROUTE.PROFILE);
     }
@@ -51,7 +70,7 @@ function Navbar() {
         value={{ color: 'white', size: '30px', className: 'navbar__profile' }}
       >
         <div onClick={goToProfile}>
-          <FiBook />
+          <User color='#FFF' strokeWidth={1} />
         </div>
       </IconContext.Provider>
     </div>

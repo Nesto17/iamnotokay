@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { Eye, EyeOff } from 'react-feather';
 
 import './Register.scss';
@@ -10,6 +10,7 @@ import { Text } from '../../components';
 function Register() {
   const firebase = useContext(FirebaseContext);
   const history = useHistory();
+  const location = useLocation();
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,18 +34,17 @@ function Register() {
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          // Signed in
-          var user = userCredential.user;
+          var uid = userCredential.user.uid;
 
-          // Add data to firestore
           db.collection('account')
-            .add({
+            .doc(uid)
+            .set({
               fullname: fullname,
               post_created: [],
               email: email,
             })
             .then(() => {
-              history.push(ROUTE.PROFILE);
+              history.push(location.state.intendedPage);
             });
         });
     } catch (error) {
@@ -104,7 +104,7 @@ function Register() {
     <form
       onSubmit={handleLogin}
       className='register__wrapper'
-      autoComplete={false}
+      autoComplete='off'
     >
       <div className='register__container'>
         <Text
@@ -178,7 +178,21 @@ function Register() {
           {error.passwordError}
         </Text>
 
-        <button type='submit'>SUBMIT ANJ</button>
+        <button type='submit'>Register</button>
+        <Text textSize='sm' textType='basic'>
+          Already have an account?
+        </Text>
+        <button
+          onClick={() =>
+            history.push({
+              pathname: ROUTE.LOG_IN,
+              state: { intendedPage: location.state.intendedPage },
+            })
+          }
+          className='login__switch'
+        >
+          Sign in
+        </button>
       </div>
     </form>
   );

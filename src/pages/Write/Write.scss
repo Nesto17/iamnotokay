@@ -1,0 +1,55 @@
+.write__wrapper {
+  width: 100vw;
+  height: calc(100vh - 90px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.write__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  padding: 0 40px;
+
+  & > * {
+    border: 0;
+    background: transparent;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &::placeholder {
+        color: #fff;
+        font-weight: 300;
+    }
+  }
+
+  input {
+      height: clamp(70px, 15%, 90px);
+      
+      color: #fff;
+      font-size: 30px;
+      font-weight: 500;
+  }
+
+  textarea {
+    resize: none;
+    flex: 1;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.write__buttons {
+    height: 110px;
+
+    display: flex;
+    align-items: stretch;
+
+}
