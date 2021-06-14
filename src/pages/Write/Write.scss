@@ -19,37 +19,60 @@
     background: transparent;
 
     &:focus {
-        outline: 0;
+      outline: 0;
     }
 
     &::placeholder {
-        color: #fff;
-        font-weight: 300;
+      color: #fff;
+      font-weight: 300;
     }
   }
 
   input {
-      height: clamp(70px, 15%, 90px);
-      
-      color: #fff;
-      font-size: 30px;
-      font-weight: 500;
+    height: clamp(70px, 15%, 90px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 20px;
+
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 500;
+
+    transition: background 200ms;
+
+    &:hover,
+    &:focus {
+      background: #FFFFFF15;
+    }
   }
 
   textarea {
     resize: none;
     flex: 1;
+    border-radius: 20px;
+    padding: 40px;
 
-    color: #fff;
+    color: #FFFFFF;
     font-size: 14px;
     font-weight: 300;
+    line-height: 28px;
+
+    transition: background 200ms;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:hover,
+    &:focus {
+      background: #FFFFFF15;
+    }
   }
 }
 
 .write__buttons {
-    height: 110px;
+  height: 110px;
 
-    display: flex;
-    align-items: stretch;
-
+  display: flex;
+  align-items: stretch;
 }
