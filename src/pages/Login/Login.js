@@ -8,7 +8,7 @@ import * as ROUTE from '../../constants/routes';
 import { Text } from '../../components';
 
 function Login() {
-  const firebase = useContext(FirebaseContext);
+  const { firebase } = useContext(FirebaseContext);
   const history = useHistory();
   const location = useLocation();
   const [email, setEmail] = useState('');

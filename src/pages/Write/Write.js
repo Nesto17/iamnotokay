@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
-// import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 
 import './Write.scss';
 import FirebaseContext from '../../utils/firebaseContext';
@@ -10,7 +9,7 @@ import { Text } from '../../components';
 import useScreenSize from '../../hooks/useScreenSize';
 
 function Write() {
-  const firebase = useContext(FirebaseContext);
+  const { firebase, FieldValue } = useContext(FirebaseContext);
   const user = useContext(UserContext);
   const history = useHistory();
   const db = firebase.firestore();
@@ -25,31 +24,30 @@ function Write() {
   const screenSize = useScreenSize();
   const spaceRegex = /\w+/g;
 
+
   const updatePostCreated = (id) => {
-    // const userPostCreated = doc(db, 'account', user.uid);
-
-    // await updateDoc(userPostCreated, {
-    //   post_created: arrayUnion(id),
-    // });
-
-    // setSuccess('Your story is published');
-    // setTitle('');
-    // setStory('');
-    // setIsAnonymous(false);
-
     return db
       .collection('account')
       .doc(user.uid)
-      .update({
-        post_created: ,
-      })
+      .set(
+        {
+          post_created: [id],
+        },
+        { merge: true }
+      )
       .then(() => {
         setSuccess('Your story is published');
         setTitle('');
         setStory('');
         setIsAnonymous(false);
+        history.push(ROUTE.PROFILE);
       });
   };
+
+  // const currentDate = Date.now();
+  // const currentDate2 = new Date();
+  // console.log(currentDate / 1000);
+  // console.log(currentDate2);
 
   const handlePublish = (event) => {
     event.preventDefault();
@@ -61,14 +59,14 @@ function Write() {
           story: story,
           anonymous: isAnonymous,
           owner: user.uid,
+          timestamp: FieldValue.serverTimestamp()
         })
         .then((docRef) => {
-          console.log('Document written with ID: ', docRef.id);
+          // console.log('Document written with ID: ', docRef.id);
           updatePostCreated(docRef.id);
         });
     } catch (error) {
       console.log(error);
-      //   const errorPrompt = error.code.split('/')[1];
     }
   };
 
@@ -135,7 +133,7 @@ function Write() {
           type='text'
           value={title}
           onChange={({ target }) => setTitle(target.value)}
-          placeholder='Title - Max 15 words'
+          placeholder='Title'
           autoFocus={true}
         />
         <Text

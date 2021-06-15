@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './Profile.scss';
@@ -8,13 +8,49 @@ import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 
 function Profile() {
-  const firebase = useContext(FirebaseContext);
+  const { firebase } = useContext(FirebaseContext);
   const user = useContext(UserContext);
   const history = useHistory();
+  const db = firebase.firestore();
+  const [stories, setStories] = useState([]);
 
-  console.log(user);
+  useEffect(() => {
+    getStoriesId();
+  }, []);
 
-  const handleClick = () => {
+  const getStoriesId = () => {
+    db.collection('account')
+      .doc(user.uid)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          doc.data().post_created.forEach((storyId) => {
+            getStoriesData(storyId);
+          });
+        }
+      })
+      .catch((error) => {
+        console.log('Error getting document:', error);
+      });
+  };
+
+  const getStoriesData = (id) => {
+    db.collection('stories')
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const tempObj = { ...doc.data(), id };
+          console.log(tempObj);
+          setStories((prev) => [...prev, tempObj]);
+        }
+      })
+      .catch((error) => {
+        console.log('Error getting document:', error);
+      });
+  };
+
+  const logOut = () => {
     firebase
       .auth()
       .signOut()
@@ -26,16 +62,40 @@ function Profile() {
       });
   };
 
-  // useEffect(() => {
-  //   const joseph = JSON.parse(localStorage.getItem('authUser'));
-  //   console.log('user', joseph);
-
-  //   console.log('UserContext', user.email);
-  // }, []);
+  // const renderStories = () => {
+  //   console.log('stories', stories);
+  //   stories.map((story, index) => {
+  //     console.log('story', story);
+  //     return (
+  //       <div
+  //         key={story?.id}
+  //         className='story__container'
+  //         style={{ background: '#FFFFFF' }}
+  //       >
+  //         <p className='story__title'>{story?.title}</p>
+  //         <button onClick={() => history.push(`/w/${story?.id}`)}>edit</button>
+  //       </div>
+  //     );
+  //   });
+  // };
 
   return (
     <div className='profile__wrapper'>
-      <button onClick={handleClick}>
+      {stories.length > 0
+        ? stories.map((story, index) => (
+            <div
+              key={story?.id}
+              className='story__container'
+              style={{ background: '#FFFFFF' }}
+            >
+              <p className='story__title'>{story?.title}</p>
+              <button onClick={() => history.push(`/w/${story?.id}`)}>
+                edit
+              </button>
+            </div>
+          ))
+        : null}
+      <button onClick={logOut}>
         <Text textSize='md' textColor='#000'>
           LOG OUT
         </Text>

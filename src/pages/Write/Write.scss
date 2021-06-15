@@ -29,9 +29,9 @@
   }
 
   input {
-    height: clamp(70px, 15%, 90px);
-    border-radius: 20px;
-    padding: 40px;
+    height: clamp(70px, 10%, 90px);
+    border-radius: 5px;
+    padding: 20px 40px;
     margin-bottom: 20px;
 
     color: #FFFFFF;
@@ -49,8 +49,8 @@
   textarea {
     resize: none;
     flex: 1;
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 5px;
+    padding: 30px 40px;
 
     color: #FFFFFF;
     font-size: 14px;
@@ -65,7 +65,7 @@
 
     &:hover,
     &:focus {
-      background: #FFFFFF15;
+      background: #212121;
     }
   }
 }
