@@ -6,7 +6,7 @@ import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 import * as ROUTE from '../../constants/routes';
 
-function Homepage() {
+const Homepage = () => {
   const user = useContext(UserContext);
   const history = useHistory();
 
@@ -25,10 +25,10 @@ function Homepage() {
     if (!user) {
       history.push({
         pathname: ROUTE.LOG_IN,
-        state: { intendedPage: ROUTE.READ },
+        state: { intendedPage: '/r/collections' },
       });
     } else {
-      history.push(ROUTE.READ);
+      history.push('/r/collections');
     }
   };
 

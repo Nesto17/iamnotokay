@@ -6,12 +6,8 @@ import * as ROUTE from './constants/routes';
 import useAuth from './hooks/useAuth';
 import UserContext from './utils/userContext';
 
-import Homepage from './pages/Homepage/Homepage';
-import Profile from './pages/Profile/Profile';
-import Navbar from './components/Navbar/Navbar';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import Write from './pages/Write/Write'; 
+import { Homepage, Profile, Login, Register, Write, Read } from './pages';
+import { Navbar } from './components';
 
 function App() {
   const { user } = useAuth();
@@ -27,6 +23,7 @@ function App() {
             <Route path={ROUTE.LOG_IN} exact component={Login} />
             <Route path={ROUTE.REGISTER} exact component={Register} />
             <Route path={ROUTE.WRITE} exact component={Write} />
+            <Route path={ROUTE.READ} exact component={Read} />
           </Switch>
         </div>
       </Router>
