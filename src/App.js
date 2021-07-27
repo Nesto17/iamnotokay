@@ -11,7 +11,7 @@ import Profile from './pages/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-import Write from './pages/Write/Write';
+import Write from './pages/Write/Write'; 
 
 function App() {
   const { user } = useAuth();

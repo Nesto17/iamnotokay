@@ -56,7 +56,7 @@ function Navbar() {
           {`I am not okay`}
         </Text>
       </Link>
-      {location.pathname[1] === ROUTE.STORY[1] && (
+      {location.pathname[1] === ROUTE.READ[1] && (
         <form className='navbar__searchbar' onSubmit={handleSubmit}>
           <input
             type='text'

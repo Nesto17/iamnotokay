@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: stretch;
   flex: 1;
-  padding: 0 40px;
+  padding: 0 40px 20px;
 
   & > * {
     border: 0;
@@ -34,7 +34,6 @@
     padding: 20px 40px;
     margin-bottom: 20px;
 
-    color: #FFFFFF;
     font-size: 30px;
     font-weight: 500;
 
@@ -42,7 +41,7 @@
 
     &:hover,
     &:focus {
-      background: #FFFFFF15;
+      background: #ffffff15;
     }
   }
 
@@ -52,7 +51,6 @@
     border-radius: 5px;
     padding: 30px 40px;
 
-    color: #FFFFFF;
     font-size: 14px;
     font-weight: 300;
     line-height: 28px;
@@ -60,7 +58,7 @@
     transition: background 200ms;
 
     &::-webkit-scrollbar {
-      display: none;
+      background: #fff;
     }
 
     &:hover,
@@ -71,8 +69,42 @@
 }
 
 .write__buttons {
-  height: 110px;
+  width: 100vw;
+  height: 90px;
 
   display: flex;
   align-items: stretch;
+
+  button {
+    background: transparent;
+    border-top: 1px solid #444444;
+    border-left: 1px solid #444444;
+    border-right: 1px solid #444444;
+    border-bottom: 0;
+    cursor: pointer;
+    padding: 0 50px;
+
+    font-size: 22px;
+    font-weight: 300;
+
+    transition: color 100ms, background 100ms;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+  }
+
+  .write__anonymous.active {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .write__submit {
+    flex: 1;
+  }
 }

@@ -14,10 +14,10 @@ function Homepage() {
     if (!user) {
       history.push({
         pathname: ROUTE.LOG_IN,
-        state: { intendedPage: ROUTE.WRITE },
+        state: { intendedPage: '/w/new' },
       });
     } else {
-      history.push(ROUTE.WRITE);
+      history.push('/w/new');
     }
   };
 
@@ -25,10 +25,10 @@ function Homepage() {
     if (!user) {
       history.push({
         pathname: ROUTE.LOG_IN,
-        state: { intendedPage: ROUTE.STORY },
+        state: { intendedPage: ROUTE.READ },
       });
     } else {
-      history.push(ROUTE.STORY);
+      history.push(ROUTE.READ);
     }
   };
 

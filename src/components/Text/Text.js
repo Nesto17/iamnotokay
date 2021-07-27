@@ -5,7 +5,14 @@ import useScreenSize from '../../hooks/useScreenSize';
 
 import './Text.scss';
 
-const Text = ({ textSize, textColor, textType, textAlign, otherStyles, children }) => {
+const Text = ({
+  textSize,
+  textColor,
+  textType,
+  textAlign,
+  otherStyles,
+  children,
+}) => {
   const screenSize = useScreenSize();
 
   let _fontSize;
@@ -21,7 +28,7 @@ const Text = ({ textSize, textColor, textType, textAlign, otherStyles, children 
       break;
   }
 
-  const _fontWeight = textSize === 'sm' ? 300 : textSize === 'md' ? 500 : 700;
+  const _fontWeight = textSize === 'sm' ? 300 : textSize === 'md' ? 400 : 700;
 
   let _fontFamily;
   switch (textType) {
@@ -62,6 +69,6 @@ Text.propTypes = {
   textType: PropTypes.string,
   textAlign: PropTypes.string,
   otherStyles: PropTypes.object,
-}
+};
 
 export default Text;
