@@ -85,12 +85,9 @@ function Write() {
   const updatePostCreated = (id) => {
     db.collection('account')
       .doc(user.uid)
-      .set(
-        {
-          post_created: [id],
-        },
-        { merge: true }
-      )
+      .update({
+        post_created: FieldValue.arrayUnion(id),
+      })
       .then(() => {
         setSuccess('Your story is published');
         setTitle('');

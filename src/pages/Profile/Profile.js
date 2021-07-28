@@ -41,8 +41,9 @@ function Profile() {
       .then((doc) => {
         if (doc.exists) {
           const tempObj = { ...doc.data(), id };
-          console.log(tempObj);
-          setStories((prev) => [...prev, tempObj]);
+          setStories((prev) => {
+            return [...prev, tempObj]
+          });
         }
       })
       .catch((error) => {

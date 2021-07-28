@@ -26,6 +26,8 @@ const Text = ({
     case 'lg':
       _fontSize = screenSize === 'mobile' ? 22 : 30;
       break;
+    default:
+      break;
   }
 
   const _fontWeight = textSize === 'sm' ? 300 : textSize === 'md' ? 400 : 700;
@@ -37,6 +39,8 @@ const Text = ({
       break;
     case 'handwriting':
       _fontFamily = `'Reenie Beanie', cursive`;
+      break;
+    default:
       break;
   }
 
