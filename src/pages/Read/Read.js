@@ -79,7 +79,7 @@ const Read = () => {
     }, []);
 
     return (
-        <div className="wrapper">
+        <div className="story__wrapper">
             <div className="story__container">
                 <div className="story__container--upper">
                     <Text textSize="lg" textType="basic">
@@ -112,15 +112,6 @@ const Read = () => {
                         />
                     </div>
                 </div>
-                {/* <Text textSize='sm' otherStyles={{ margin: '10px 0' }}>{` • `}</Text> */}
-                {stories.map((item, index) => {
-                    return <h1>{item?.data?.title}</h1>;
-                })}
-                {/* <div className='story__buttons'>
-          <button className='story__previous'>Previous Story</button>
-          <button className='story__expand'>Expand as a page</button>
-          <button className='story__next'>Next Story</button>
-        </div> */}
             </div>
         </div>
     );
