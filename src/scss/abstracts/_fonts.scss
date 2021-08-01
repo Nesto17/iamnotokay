@@ -1,0 +1,58 @@
+@import '../vendors/_vendors-dir';
+
+$font-modern: 'Inter', sans-serif;
+$font-handwriting: 'Reenie-Beanie', cursive;
+
+$fontsize-sm: (
+    desktop: 14px,
+    tablet: 12px,
+    mobile: 11px,
+);
+
+$fontsize-md: (
+    desktop: 22px,
+    tablet: 18px,
+    mobile: 16px,
+);
+
+$fontsize-lg: (
+    desktop: 30px,
+    tablet: 26px,
+    mobile: 22px,
+);
+
+@mixin responsive-font($fontsize: sm) {
+    @if ($fontsize == sm) {
+        @include media('>=phone', '<tablet') {
+            font-size: map-get($fontsize-sm, mobile);
+        }
+        @include media('>=tablet', '<desktop') {
+            font-size: map-get($fontsize-sm, tablet);
+        }
+        @include media('>=desktop') {
+            font-size: map-get($fontsize-sm, desktop);
+        }
+    }
+    @if ($fontsize == md) {
+        @include media('>=phone', '<tablet') {
+            font-size: map-get($fontsize-md, mobile);
+        }
+        @include media('>=tablet', '<desktop') {
+            font-size: map-get($fontsize-md, tablet);
+        }
+        @include media('>=desktop') {
+            font-size: map-get($fontsize-md, desktop);
+        }
+    }
+    @if ($fontsize == lg) {
+        @include media('>=phone', '<tablet') {
+            font-size: map-get($fontsize-lg, mobile);
+        }
+        @include media('>=tablet', '<desktop') {
+            font-size: map-get($fontsize-lg, tablet);
+        }
+        @include media('>=desktop') {
+            font-size: map-get($fontsize-lg, desktop);
+        }
+    }
+}

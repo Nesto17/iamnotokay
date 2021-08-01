@@ -1,10 +1,25 @@
+@import '../../scss/styles.scss';
+
 .navbar__container {
     width: 100vw;
-    height: 90px;
-    padding: 0px 40px;
+    height: $height-navbar;
+    @include responsive-padding-standard(x);
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.navbar__profile {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    fill: transparent;
+
+    transition: fill 200ms;
+
+    &:hover, &:focus {
+        fill: $white;
+    }
 }

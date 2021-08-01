@@ -1,149 +1,129 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Maximize2, Heart, Share, Flag } from 'react-feather';
 
-import './Read.scss';
+import './Read.css';
 import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 import * as ROUTE from '../../constants/routes';
 import { Text, Modal } from '../../components';
 
 const Read = () => {
-  const { firebase, FieldValue } = useContext(FirebaseContext);
-  const user = useContext(UserContext);
-  const history = useHistory();
-  const db = firebase.firestore();
-  const { id } = useParams();
-  const [stories, setStories] = useState([]);
-  const [tempStories, setTempStories] = useState([]);
+    const { firebase, FieldValue } = useContext(FirebaseContext);
+    const user = useContext(UserContext);
+    const history = useHistory();
+    const db = firebase.firestore();
+    const { id } = useParams();
+    const [stories, setStories] = useState([]);
+    const [tempStories, setTempStories] = useState([]);
 
-  useEffect(() => {
-    getTenData();
+    const randomizeArray = () => {
+        const array = tempStories;
 
-    const tempArray = randomizeArray(tempStories);
+        let currentIndex = array.length,
+            randomIndex;
 
-    setStories([...stories, ...tempArray]);
-  }, []);
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
 
-  const getData = () => {
-    db.collection('stories')
-      .doc('bPFJmhIOma8ndjcNNDx4')
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          console.log('Document data:', doc.data());
-          setTempStories(doc.data());
-          console.log('tempStories', tempStories);
-          // console.log(stories);
-        } else {
-          console.log('No such document!');
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
         }
-      })
-      .catch((error) => {
-        console.log('Error getting document:', error);
-      });
-  };
 
-  const getTenData = () => {
-    // console.log(tempTimeStamp, 'TIME');
-    // db.collection('stories')
-    //   .where('timestamp', '>=', tempTimeStamp)
-    //   .orderBy('timestamp', 'desc')
-    //   .limit(5)
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       // doc.data() is never undefined for query doc snapshots
-    //       console.log(doc.id, ' => ', doc.data());
-    //       setTempStories((prev) => [...prev, doc.data()]);
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log('Error getting documents: ', error);
-    //   });
+        return array;
+    };
 
-    db.collection('stories')
-      .where('timestamp', '>=', new Date(2021, 6, 26))
-      .orderBy('timestamp', 'desc')
-      .limit(5)
-      .onSnapshot((snapshot) => {
-        console.log(snapshot);
-        snapshot.forEach((doc) => {
-          // processItem(doc);
-          console.log(doc.id, ' => ', doc.data());
-          setTempStories((prev) => {
-            console.log('tempStories', prev);
-            return [...prev, doc.data()];
-          });
+    const shuffleArray = () => {
+        let array = tempStories;
+
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+
+        return array;
+    };
+
+    const getTenData = () => {
+        return new Promise((resolve) => {
+            db.collection('stories')
+                .where('timestamp', '>=', new Date(2021, 6, 26))
+                .orderBy('timestamp', 'desc')
+                .limit(10)
+                .onSnapshot((snapshot) => {
+                    snapshot.forEach((doc) => {
+                        let temp = {
+                            id: doc.id,
+                            data: doc.data(),
+                        };
+                        setTempStories(tempStories?.push(temp));
+                    });
+                });
+            resolve('');
         });
-      });
-  };
+    };
 
-  const randomizeArray = (array) => {
-    let currentIndex = array.length,
-      randomIndex;
+    const parseData = () => {
+        getTenData().then(() => {
+            const tempArray = randomizeArray();
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+            const storiesssss = stories.concat(tempArray);
+            console.log(storiesssss, 'TAJSDJASJDAJSDASJ');
+            setStories(storiesssss);
+            console.log(stories, 'THIS IS STORIES');
+        });
+    };
 
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
+    useEffect(() => {
+        parseData();
+    }, []);
 
-    return array;
-  };
-
-  return (
-    <div className='wrapper'>
-      <div className='story__container'>
-        <div className='story__container--upper'>
-          <Text textSize='lg' textType='basic'>
-            {id}
-          </Text>
-          <div className='story__icons'>
-            <Maximize2
-              className='story__icons--item'
-              onClick={() => console.log('THIS IS EXPAND ICON')}
-              color='#FFF'
-              strokeWidth={1}
-            />
-            <Heart
-              className='story__icons--item'
-              onClick={() => console.log('THIS IS LIKE ICON')}
-              color='#FFF'
-              strokeWidth={1}
-            />
-            <Share
-              className='story__icons--item'
-              onClick={() => console.log('THIS IS SHARE ICON')}
-              color='#FFF'
-              strokeWidth={1}
-            />
-            <Flag
-              className='story__icons--item'
-              onClick={() => console.log('THIS IS FLAG ICON')}
-              color='#FFF'
-              strokeWidth={1}
-            />
-          </div>
-        </div>
-        <Text textSize='sm' otherStyles={{ margin: '10px 0' }}>{` • `}</Text>
-        {stories.map((story, index) => (
-          <Text textType='lg'>{story?.title}</Text>
-        ))}
-        {/* <div className='story__buttons'>
+    return (
+        <div className="wrapper">
+            <div className="story__container">
+                <div className="story__container--upper">
+                    <Text textSize="lg" textType="basic">
+                        {'INI JUDUL PAGE OKE JOSEPH'}
+                    </Text>
+                    <div className="story__icons">
+                        <Maximize2
+                            className="story__icons--item"
+                            onClick={() => console.log('THIS IS EXPAND ICON')}
+                            color="#FFF"
+                            strokeWidth={1}
+                        />
+                        <Heart
+                            className="story__icons--item"
+                            onClick={() => console.log('THIS IS LIKE ICON')}
+                            color="#FFF"
+                            strokeWidth={1}
+                        />
+                        <Share
+                            className="story__icons--item"
+                            onClick={() => console.log('THIS IS SHARE ICON')}
+                            color="#FFF"
+                            strokeWidth={1}
+                        />
+                        <Flag
+                            className="story__icons--item"
+                            onClick={() => console.log('THIS IS FLAG ICON')}
+                            color="#FFF"
+                            strokeWidth={1}
+                        />
+                    </div>
+                </div>
+                {/* <Text textSize='sm' otherStyles={{ margin: '10px 0' }}>{` • `}</Text> */}
+                {stories.map((item, index) => {
+                    return <h1>{item?.data?.title}</h1>;
+                })}
+                {/* <div className='story__buttons'>
           <button className='story__previous'>Previous Story</button>
           <button className='story__expand'>Expand as a page</button>
           <button className='story__next'>Next Story</button>
         </div> */}
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 };
 
 export default Read;

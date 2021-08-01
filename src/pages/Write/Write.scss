@@ -1,110 +1,69 @@
-.write__wrapper {
-  width: 100vw;
-  height: calc(100vh - 90px);
+@import '../../scss/styles.scss';
 
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+.write__wrapper {
+    width: 100vw;
+    height: $height-page;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .write__container {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex: 1;
-  padding: 0 40px 20px;
-
-  & > * {
-    border: 0;
-    background: transparent;
-
-    &:focus {
-      outline: 0;
-    }
-
-    &::placeholder {
-      color: #fff;
-      font-weight: 300;
-    }
-  }
-
-  input {
-    height: clamp(70px, 10%, 90px);
-    border-radius: 5px;
-    padding: 20px 40px;
-    margin-bottom: 20px;
-
-    font-size: 30px;
-    font-weight: 500;
-
-    transition: background 200ms;
-
-    &:hover,
-    &:focus {
-      background: #ffffff15;
-    }
-  }
-
-  textarea {
-    resize: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     flex: 1;
-    border-radius: 5px;
-    padding: 30px 40px;
+    @include responsive-padding-standard(x);
+    @include responsive-padding-standard(y, 10px, 10px, 15px);
 
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 28px;
+    & > * {
+        border: 0;
+        background: transparent;
 
-    transition: background 200ms;
+        &:focus {
+            outline: 0;
+        }
 
-    &::-webkit-scrollbar {
-      background: #fff;
+        &::placeholder {
+            color: $white;
+            font-weight: 300;
+        }
     }
 
-    &:hover,
-    &:focus {
-      background: #212121;
+    input {
+        @include input-box-translucent(70px, 90px, lg);
+        
+        margin-bottom: 20px;
+        font-weight: 500;
     }
-  }
+
+    textarea {
+        @include input-box-translucent(70px, 1000px, sm);
+        @include responsive-padding-standard(y, 20px, 30px, 30px);
+        @include scrollbar;
+
+        resize: none;
+        flex: 1;
+        font-weight: 300;
+        line-height: 28px;
+    }
 }
 
 .write__buttons {
-  width: 100vw;
-  height: 90px;
+    @include bottom-panel-container;
 
-  display: flex;
-  align-items: stretch;
-
-  button {
-    background: transparent;
-    border-top: 1px solid #444444;
-    border-left: 1px solid #444444;
-    border-right: 1px solid #444444;
-    border-bottom: 0;
-    cursor: pointer;
-    padding: 0 50px;
-
-    font-size: 22px;
-    font-weight: 300;
-
-    transition: color 100ms, background 100ms;
-
-    &:focus {
-      outline: 0;
+    button {
+        @include bottom-panel-button;
+        @include responsive-padding-standard(x);
     }
 
-    &:hover {
-      background: #ffffff;
-      color: #000000;
+    .write__anonymous.active {
+        background: $white;
+        color: $black;
     }
-  }
 
-  .write__anonymous.active {
-    background: #ffffff;
-    color: #000000;
-  }
-
-  .write__submit {
-    flex: 1;
-  }
+    .write__submit {
+        flex-grow: 1;
+    }
 }
