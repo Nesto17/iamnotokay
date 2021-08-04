@@ -37,11 +37,10 @@ const Read = () => {
         return array;
     };
 
-    const getTenData = (ok) => {
+    const getTenData = () => {
         return new Promise((resolve, reject) => {
-            console.log(ok, 'db Ok');
             db.collection('stories')
-                .where(FieldPath.documentId(), 'not-in', ok)
+                .where(FieldPath.documentId(), 'not-in', idList)
                 // .where('timestamp', '>=', new Date(2020, 6, 26))
                 // .orderBy('timestamp', 'desc')
                 .limit(5)
@@ -55,35 +54,21 @@ const Read = () => {
                         setIdList(idList?.push(doc.id));
                     });
                 });
+            console.log(tempStories, 'Get Ten Data');
             resolve('');
         });
     };
 
     const parseData = () => {
-        getTenData(['ok']).then(() => {
+        getTenData().then(() => {
             console.log(idList, 'idList ONE');
             // console.log(tempStories, 'okaodkfjakdjfalksdj');
             // const tempArray = randomizeArray();
             // console.log('tempArray ONE', tempArray);
         });
 
-        setTimeout(
-            getTenData([
-                '0OHMX7WK5UpyGJ3Irdkn',
-                '0pWrehgOJUHynMOlmWc7',
-                '5YqV04ZIPDrHuKFC3HsZ',
-                '78g0fCScbgUbk9WZ22GT',
-                'AK4FrNvvBulaqCIySQvE',
-            ]).then(() => {
-                // const tempArrayTwo = randomizeArray();
-                console.log(idList, 'idList TWO');
-                // console.log(tempStories, 'okaodkfjakdjfalksdj');
-            }),
-            6000
-        );
-
         setTimeout(() => {
-            console.log('ok');
+            getTenData();
         }, 2000);
     };
 
