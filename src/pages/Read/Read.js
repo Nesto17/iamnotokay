@@ -39,10 +39,11 @@ const Read = () => {
 
     const getTenData = () => {
         return new Promise((resolve, reject) => {
+            let newDate = new Date(2021, 6, 26);
             db.collection('stories')
-                .where(FieldPath.documentId(), 'not-in', idList)
-                // .where('timestamp', '>=', new Date(2020, 6, 26))
-                // .orderBy('timestamp', 'desc')
+                // .where(FieldPath.documentId(), 'not-in', idList)
+                .where('timestamp', '>=', newDate)
+                .orderBy('timestamp', 'desc')
                 .limit(5)
                 .onSnapshot((snapshot) => {
                     snapshot.forEach((doc) => {
@@ -59,6 +60,22 @@ const Read = () => {
         });
     };
 
+    /*
+        Cara 1:
+            1. pake timestamp untuk query berdasarkan date random. variable bisa, tinggal random date berdasarkan range
+            2. filter di client side yang sama ga dipake. (bisa berapapa pun) (makin banyak data makin berat websitenya)
+            3. pasti kalo ada yang sama data < 10 (contoh unique data ada 5)  
+            4. query lagi sampe datanya ini ada 10 yang unique. per fetch ada (10 data yang baru)
+
+            downsight: 
+            - ngabisin read. 
+        Cara 2:
+            - langsung banyak ambil documentnya, randomize di client side
+
+            downsight: 
+            - ngabisin read. 
+    */
+
     const parseData = () => {
         getTenData().then(() => {
             console.log(idList, 'idList ONE');
@@ -70,6 +87,10 @@ const Read = () => {
         setTimeout(() => {
             getTenData();
         }, 2000);
+
+        // setTimeout(() => {
+        //     getTenData();
+        // }, 4000);
     };
 
     useEffect(() => {
