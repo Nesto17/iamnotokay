@@ -26,10 +26,10 @@ const Homepage = () => {
         if (!user) {
             history.push({
                 pathname: ROUTE.LOG_IN,
-                state: { intendedPage: '/r/collections' },
+                state: { intendedPage: ROUTE.COLLECTION },
             });
         } else {
-            history.push('/r/collections');
+            history.push(ROUTE.COLLECTION);
         }
     };
 

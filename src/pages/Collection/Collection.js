@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Maximize2, Heart, Share, Flag } from 'react-feather';
 
-import './Read.css';
+import './Collection.css';
 import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 import * as ROUTE from '../../constants/routes';
-import { Text, Modal } from '../../components';
+import { Text, Modal, PageLoader } from '../../components';
 
-const Read = () => {
+const Collection = () => {
     const { firebase, FieldValue, FieldPath } = useContext(FirebaseContext);
     const user = useContext(UserContext);
     const history = useHistory();
@@ -17,6 +17,7 @@ const Read = () => {
     const [stories, setStories] = useState([]);
     const [tempStories, setTempStories] = useState([]);
     const [idList, setIdList] = useState(['ok']);
+    const [isLoading, setIsLoading] = useState(false);
 
     const randomizeArray = () => {
         const array = tempStories;
@@ -95,6 +96,10 @@ const Read = () => {
 
     useEffect(() => {
         parseData();
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, []);
 
     return (
@@ -132,8 +137,9 @@ const Read = () => {
                     </div>
                 </div>
             </div>
+            <PageLoader visible={isLoading} />
         </div>
     );
 };
 
-export default Read;
+export default Collection;
