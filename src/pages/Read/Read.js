@@ -52,8 +52,8 @@ const Read = () => {
             console.log(newDate, 'New date');
             db.collection('stories')
                 .where('timestamp', operator, newDate)
-                .orderBy('timestamp', 'desc')
-                .limit(5)
+                // .orderBy('timestamp', 'asc')
+                .limit(1)
                 .onSnapshot((snapshot) => {
                     snapshot.forEach((doc) => {
                         if (!idList.includes(doc.id)) {
