@@ -16,7 +16,7 @@ const Read = () => {
     const { id } = useParams();
     const [stories, setStories] = useState([]);
     const [tempStories, setTempStories] = useState([]);
-    const [idList, setIdList] = useState(['ok']);
+    const [idList, setIdList] = useState([]);
 
     const randomizeArray = () => {
         const array = tempStories;
@@ -39,25 +39,42 @@ const Read = () => {
 
     const getTenData = () => {
         return new Promise((resolve, reject) => {
-            let newDate = new Date(2021, 6, 26);
+            let chance = getRandomInt(0, 1);
+            let operator = '<=';
+            console.log(chance);
+            if (chance == 0) {
+                operator = '>=';
+            }
+            console.log(operator, 'operator');
+            let date = getRandomInt(1, 31);
+            let month = getRandomInt(6, 7);
+            let newDate = new Date(2021, month, date);
+            console.log(newDate, 'New date');
             db.collection('stories')
-                // .where(FieldPath.documentId(), 'not-in', idList)
-                .where('timestamp', '>=', newDate)
+                .where('timestamp', operator, newDate)
                 .orderBy('timestamp', 'desc')
                 .limit(5)
                 .onSnapshot((snapshot) => {
                     snapshot.forEach((doc) => {
-                        let temp = {
-                            id: doc.id,
-                            data: doc.data(),
-                        };
-                        setTempStories(tempStories?.push(temp));
-                        setIdList(idList?.push(doc.id));
+                        if (!idList.includes(doc.id)) {
+                            let temp = {
+                                id: doc.id,
+                                data: doc.data(),
+                            };
+                            setTempStories(tempStories?.push(temp));
+                            setIdList(idList?.push(doc.id));
+                        }
                     });
                 });
             console.log(tempStories, 'Get Ten Data');
             resolve('');
         });
+    };
+
+    const getRandomInt = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
     /*
@@ -78,19 +95,21 @@ const Read = () => {
 
     const parseData = () => {
         getTenData().then(() => {
-            console.log(idList, 'idList ONE');
+            // console.log(idList, 'idList ONE');
             // console.log(tempStories, 'okaodkfjakdjfalksdj');
             // const tempArray = randomizeArray();
             // console.log('tempArray ONE', tempArray);
         });
 
         setTimeout(() => {
-            getTenData();
+            console.log('ini kedua');
+            getTenData(6, 30);
         }, 2000);
 
-        // setTimeout(() => {
-        //     getTenData();
-        // }, 4000);
+        setTimeout(() => {
+            console.log('ini Ketiga');
+            getTenData(7, 15);
+        }, 4000);
     };
 
     useEffect(() => {
