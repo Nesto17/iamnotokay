@@ -94,12 +94,7 @@ const Read = () => {
     */
 
     const parseData = () => {
-        getTenData().then(() => {
-            // console.log(idList, 'idList ONE');
-            // console.log(tempStories, 'okaodkfjakdjfalksdj');
-            // const tempArray = randomizeArray();
-            // console.log('tempArray ONE', tempArray);
-        });
+        getTenData().then(() => {});
 
         setTimeout(() => {
             console.log('ini kedua');
