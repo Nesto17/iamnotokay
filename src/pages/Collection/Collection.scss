@@ -1,0 +1,94 @@
+@import '../../scss/styles.scss';
+
+.collection__wrapper {
+    width: 100vw;
+    height: $height-page;
+    color: $white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.collection__container {
+    @include responsive-padding-standard(x);
+    @include responsive-padding-standard(y, 20px, 20px, 20px);
+
+    width: 100%;
+    max-height: $height-page;
+    flex-grow: 1;
+
+    overflow-y: hidden;
+}
+
+.collection__container--upper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collection__title {
+    @include responsive-font(lg);
+}
+
+.collection__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .collection__icons--item {
+        margin-left: 15px;
+        cursor: pointer;
+        fill: transparent;
+
+        transition: fill 200ms;
+
+        &:hover {
+            fill: $white;
+        }
+    }
+}
+
+.collection__info {
+    @include responsive-font(sm);
+
+    margin-top: 20px;
+    display: flex;
+
+    .collection__owner {
+        cursor: pointer;
+    }
+
+    .collection__date {
+        margin-left: 5px;
+    }
+}
+
+.collection__desc {
+    @include responsive-font(sm);
+
+    margin-top: 30px;
+
+    font-weight: map-get($fontweight, light);
+    line-height: 26px;
+}
+
+.collection__buttons {
+    @include bottom-panel-container;
+
+    button {
+        @include bottom-panel-button;
+        @include responsive-padding-standard(x);
+    }
+
+    .collection__previous,
+    .collection__next {
+        width: 20%;
+    }
+
+    .collection__open {
+        flex-grow: 1;
+    }
+}

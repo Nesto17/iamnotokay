@@ -20,6 +20,11 @@
     place-items: center;
 }
 
+.homepage__hero--title {
+    @include responsive-font(hero);
+    font-family: $font-handwriting;
+}
+
 .homepage__buttons {
     @include bottom-panel-container;
 

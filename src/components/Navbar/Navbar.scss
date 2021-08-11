@@ -11,10 +11,19 @@
     justify-content: space-between;
 }
 
+.navbar__logo {
+    @include responsive-font(lg);
+    color: $white;
+    font-family: $font-handwriting;
+}
+
 .navbar__profile {
     cursor: pointer;
     width: 30px;
     height: 30px;
+    border: $white;
+
+    stroke: $white;
     fill: transparent;
 
     transition: fill 200ms;

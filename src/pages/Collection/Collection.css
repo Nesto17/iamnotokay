@@ -1,0 +1,271 @@
+@use 'sass:meta';
+.collection__wrapper {
+  width: 100vw;
+  height: calc(100vh - 90px);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.collection__container {
+  width: 100%;
+  max-height: calc(100vh - 90px);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow-y: hidden;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.collection__container--upper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__title {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__title {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__title {
+    font-size: 30px;
+  }
+}
+
+.collection__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.collection__icons .collection__icons--item {
+  margin-left: 15px;
+  cursor: pointer;
+  fill: transparent;
+  -webkit-transition: fill 200ms;
+  transition: fill 200ms;
+}
+
+.collection__icons .collection__icons--item:hover {
+  fill: white;
+}
+
+.collection__info {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__info {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__info {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__info {
+    font-size: 14px;
+  }
+}
+
+.collection__info .collection__owner {
+  cursor: pointer;
+}
+
+.collection__info .collection__date {
+  margin-left: 5px;
+}
+
+.collection__desc {
+  margin-top: 30px;
+  font-weight: 300;
+  line-height: 26px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__desc {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__desc {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__desc {
+    font-size: 14px;
+  }
+}
+
+.collection__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 100%;
+  min-height: 90px;
+  -webkit-box-shadow: 0px -40px 70px 40px black;
+          box-shadow: 0px -40px 70px 40px black;
+  z-index: 100;
+}
+
+.collection__buttons button {
+  background: transparent;
+  border: 1px solid #333333;
+  border-top-width: 2px;
+  border-bottom-width: 0;
+  cursor: pointer;
+  font-weight: 300;
+  color: white;
+  -webkit-transition: color 100ms, background 100ms;
+  transition: color 100ms, background 100ms;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__buttons button {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__buttons button {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__buttons button {
+    font-size: 22px;
+  }
+}
+
+.collection__buttons button:focus {
+  outline: 0;
+}
+
+.collection__buttons button:hover {
+  background: white;
+  color: black;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .collection__buttons button {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collection__buttons button {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .collection__buttons button {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.collection__buttons .collection__previous,
+.collection__buttons .collection__next {
+  width: 20%;
+}
+
+.collection__buttons .collection__open {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+/*# sourceMappingURL=Collection.css.map */

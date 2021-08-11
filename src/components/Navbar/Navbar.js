@@ -51,9 +51,7 @@ function Navbar() {
     return (
         <div className="navbar__container">
             <Link to={ROUTE.HOMEPAGE}>
-                <Text textSize="lg" textType="handwriting">
-                    {`I am not okay`}
-                </Text>
+                <h1 className="navbar__logo">I am not okay</h1>
             </Link>
             {location.pathname[1] === ROUTE.READ[1] && (
                 <form className="navbar__searchbar" onSubmit={handleSubmit}>
