@@ -1,18 +1,26 @@
 @import '../../scss/styles.scss';
 
-.story__wrapper {
+.collection__wrapper {
     width: 100vw;
     height: $height-page;
+    color: $white;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.story__container {
+.collection__container {
     @include responsive-padding-standard(x);
     @include responsive-padding-standard(y, 20px, 20px, 20px);
 
     width: 100%;
+    max-height: $height-page;
+    flex-grow: 1;
+
+    overflow-y: hidden;
 }
 
-.story__container--upper {
+.collection__container--upper {
     width: 100%;
 
     display: flex;
@@ -21,45 +29,66 @@
     justify-content: space-between;
 }
 
-.story__icons {
+.collection__title {
+    @include responsive-font(lg);
+}
+
+.collection__icons {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
 
-.story__icons--item {
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-.story__buttons {
-    width: 100vw;
-    height: 90px;
-
-    display: flex;
-    align-items: stretch;
-
-    button {
-        background: transparent;
-        border-top: 1px solid #444444;
-        border-left: 1px solid #444444;
-        border-right: 1px solid #444444;
-        border-bottom: 0;
+    .collection__icons--item {
+        margin-left: 15px;
         cursor: pointer;
-        padding: 0 50px;
+        fill: transparent;
 
-        font-size: 22px;
-        font-weight: 300;
-
-        transition: color 100ms, background 100ms;
-
-        &:focus {
-            outline: 0;
-        }
+        transition: fill 200ms;
 
         &:hover {
-            background: #ffffff;
-            color: #000000;
+            fill: $white;
         }
+    }
+}
+
+.collection__info {
+    @include responsive-font(sm);
+
+    margin-top: 20px;
+    display: flex;
+
+    .collection__owner {
+        cursor: pointer;
+    }
+
+    .collection__date {
+        margin-left: 5px;
+    }
+}
+
+.collection__desc {
+    @include responsive-font(sm);
+
+    margin-top: 30px;
+
+    font-weight: map-get($fontweight, light);
+    line-height: 26px;
+}
+
+.collection__buttons {
+    @include bottom-panel-container;
+
+    button {
+        @include bottom-panel-button;
+        @include responsive-padding-standard(x);
+    }
+
+    .collection__previous,
+    .collection__next {
+        width: 20%;
+    }
+
+    .collection__open {
+        flex-grow: 1;
     }
 }

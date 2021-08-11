@@ -36,9 +36,9 @@ const Homepage = () => {
     return (
         <div className="homepage__wrapper">
             <div className="homepage__hero">
-                <Text textType="handwriting" textSize="hero">
+                <h1 className="homepage__hero--title">
                     Your pain is temporary
-                </Text>
+                </h1>
             </div>
             <div className="homepage__buttons">
                 <button
