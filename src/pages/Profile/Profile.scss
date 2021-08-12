@@ -1,0 +1,19 @@
+@import '../../scss/styles.scss';
+
+/******************* 
+    LAYOUT 
+*******************/
+
+main {
+  width: 100vw;
+  height: $height-page;
+
+  display: grid;
+  //   grid-template-columns: 0.3%, 0.26%, 0.44%;
+  grid-template-columns: 0.3fr 0.26fr 0.44fr;
+  color: #fff;
+}
+
+section {
+  border: 1px solid white;
+}

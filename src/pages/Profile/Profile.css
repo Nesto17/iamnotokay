@@ -1,1 +1,18 @@
-/* No CSS *//*# sourceMappingURL=Profile.css.map */
+@use 'sass:meta';
+/******************* 
+    LAYOUT 
+*******************/
+main {
+  width: 100vw;
+  height: calc(100vh - 90px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.3fr 0.26fr 0.44fr;
+      grid-template-columns: 0.3fr 0.26fr 0.44fr;
+  color: #fff;
+}
+
+section {
+  border: 1px solid white;
+}
+/*# sourceMappingURL=Profile.css.map */
