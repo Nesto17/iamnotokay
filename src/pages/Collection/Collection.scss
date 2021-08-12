@@ -11,7 +11,7 @@
 
 .collection__container {
     @include responsive-padding-standard(x);
-    @include responsive-padding-standard(y, 20px, 20px, 20px);
+    @include responsive-padding-standard(y, 40px, 40px, 40px);
 
     width: 100%;
     max-height: $height-page;
@@ -58,10 +58,12 @@
     display: flex;
 
     .collection__owner {
+        font-weight: map-get($fontweight, semibold);
         cursor: pointer;
     }
 
     .collection__date {
+        font-weight: map-get($fontweight, extralight);
         margin-left: 5px;
     }
 }
@@ -71,7 +73,7 @@
 
     margin-top: 30px;
 
-    font-weight: map-get($fontweight, light);
+    font-weight: map-get($fontweight, extralight);
     line-height: 26px;
 }
 

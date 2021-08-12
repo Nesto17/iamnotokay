@@ -6,7 +6,7 @@ import * as ROUTE from './constants/routes';
 import useAuth from './hooks/useAuth';
 import UserContext from './utils/userContext';
 
-import { Homepage, Profile, Login, Register, Write, Collection } from './pages';
+import { Homepage, Profile, Login, Register, Write, Story, Collection } from './pages';
 import { Navbar } from './components';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
             <Route path={ROUTE.LOG_IN} exact component={Login} />
             <Route path={ROUTE.REGISTER} exact component={Register} />
             <Route path={ROUTE.WRITE} exact component={Write} />
+            <Route path={ROUTE.STORY} exact component={Story} />
             <Route path={ROUTE.COLLECTION} exact component={Collection} />
           </Switch>
         </div>

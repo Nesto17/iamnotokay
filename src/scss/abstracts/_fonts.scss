@@ -22,6 +22,7 @@ $fontsize-lg: (
 );
 
 $fontweight: (
+    extralight: 200,
     light: 300,
     normal: 400,
     medium: 500,
@@ -61,6 +62,17 @@ $fontweight: (
         }
         @include media('>=desktop') {
             font-size: map-get($fontsize-lg, desktop);
+        }
+    }
+    @if ($fontsize == extralg) {
+        @include media('>=phone', '<tablet') {
+            font-size: 30px;
+        }
+        @include media('>=tablet', '<desktop') {
+            font-size: 45px;
+        }
+        @include media('>=desktop') {
+            font-size: 55px;
         }
     }
     @if ($fontsize == hero) {

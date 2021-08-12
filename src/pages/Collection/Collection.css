@@ -44,22 +44,22 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
   .collection__container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .collection__container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
 @media (min-width: 1024px) {
   .collection__container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -149,16 +149,18 @@
 }
 
 .collection__info .collection__owner {
+  font-weight: 600;
   cursor: pointer;
 }
 
 .collection__info .collection__date {
+  font-weight: 200;
   margin-left: 5px;
 }
 
 .collection__desc {
   margin-top: 30px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 26px;
 }
 
@@ -193,8 +195,8 @@
           align-items: stretch;
   width: 100%;
   min-height: 90px;
-  -webkit-box-shadow: 0px -40px 70px 40px black;
-          box-shadow: 0px -40px 70px 40px black;
+  -webkit-box-shadow: 0px -20px 90px 20px black;
+          box-shadow: 0px -20px 90px 20px black;
   z-index: 100;
 }
 

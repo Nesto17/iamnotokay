@@ -15,7 +15,7 @@
     align-items: stretch;
     flex: 1;
     @include responsive-padding-standard(x);
-    @include responsive-padding-standard(y, 10px, 10px, 15px);
+    @include responsive-padding-standard(y, 20px, 30px, 30px);
 
     & > * {
         border: 0;
@@ -45,7 +45,7 @@
 
         resize: none;
         flex: 1;
-        font-weight: 300;
+        font-weight: map-get($fontweight, extralight);
         line-height: 28px;
     }
 }

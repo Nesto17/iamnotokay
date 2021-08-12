@@ -14,6 +14,27 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  width: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 100px;
+  cursor: default;
+  -webkit-transition: background 500ms;
+  transition: background 500ms;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
 .wrapper {
   width: 100vw;
   min-height: 100vh;

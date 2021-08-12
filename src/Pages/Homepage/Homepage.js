@@ -22,7 +22,7 @@ const Homepage = () => {
         }
     };
 
-    const goToRead = () => {
+    const goToCollection = () => {
         if (!user) {
             history.push({
                 pathname: ROUTE.LOG_IN,
@@ -51,7 +51,7 @@ const Homepage = () => {
                 <button
                     type="button"
                     className="homepage__button"
-                    onClick={goToRead}
+                    onClick={goToCollection}
                 >
                     I want read people's stories
                 </button>
