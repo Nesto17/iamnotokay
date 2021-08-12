@@ -49,6 +49,7 @@
 }
 
 .homepage__hero--title {
+  color: white;
   font-family: "Reenie Beanie", cursive;
 }
 
@@ -83,8 +84,8 @@
           align-items: stretch;
   width: 100%;
   min-height: 90px;
-  -webkit-box-shadow: 0px -40px 70px 40px black;
-          box-shadow: 0px -40px 70px 40px black;
+  -webkit-box-shadow: 0px -20px 90px 20px black;
+          box-shadow: 0px -20px 90px 20px black;
   z-index: 100;
 }
 

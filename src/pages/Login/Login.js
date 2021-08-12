@@ -21,11 +21,6 @@ function Login() {
     const emailRegex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    // useEffect(() => {
-    //   console.log(location);
-    //   console.log(history);
-    // }, []);
-
     const handleLogin = async (event) => {
         event.preventDefault();
 

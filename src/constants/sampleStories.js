@@ -1,5 +1,6 @@
 export default [
     {
+        id: '1A1A1A',
         anonymous: true,
         owner: {
             id: 'bZHJV5OscvXQaRsWurh3BWdw3u22',
@@ -13,6 +14,7 @@ export default [
         replies: [],
     },
     {
+        id: '2B2B2B',
         anonymous: false,
         owner: {
             id: 'bZHJV5OscvXQaRsWurh3BWdw3u22',
@@ -26,6 +28,7 @@ export default [
         replies: [],
     },
     {
+        id: '3C3C3C',
         anonymous: true,
         owner: {
             id: 'bZHJV5OscvXQaRsWurh3BWdw3u22',

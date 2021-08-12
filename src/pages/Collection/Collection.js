@@ -29,6 +29,10 @@ const Collection = () => {
         setCurrentStory(stories[currentIndex]);
     }, [stories, currentIndex]);
 
+    const expandStory = () => {
+        history.push({ pathname: `/s/${currentStory?.id}`, state: { data: currentStory } });
+    };
+
     return (
         <div className="collection__wrapper">
             <div className="collection__container">
@@ -37,7 +41,7 @@ const Collection = () => {
                     <div className="collection__icons">
                         <Maximize2
                             className="collection__icons--item"
-                            onClick={() => console.log('THIS IS EXPAND ICON')}
+                            onClick={() => expandStory()}
                             color="#FFF"
                             strokeWidth={1}
                         />
@@ -61,14 +65,14 @@ const Collection = () => {
                         />
                     </div>
                 </div>
-                <p className="collection__info">
+                <div className="collection__info">
                     <p type="button" className="collection__owner">
                         {currentStory?.anonymous ? 'Anonymous' : currentStory?.owner?.fullname}
                     </p>
                     <p className="collection__date">{`• ${moment(currentStory?.timestamp).format(
                         'MMMM d, YYYY'
                     )}`}</p>
-                </p>
+                </div>
                 <p className="collection__desc">{currentStory?.story}</p>
             </div>
             <div className="collection__buttons">
@@ -81,7 +85,7 @@ const Collection = () => {
                         Previous
                     </button>
                 )}
-                <button type="button" className="collection__open">
+                <button onClick={expandStory} type="button" className="collection__open">
                     Read this story
                 </button>
                 {currentIndex < stories.length - 1 && (
