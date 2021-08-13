@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Twitter } from 'react-feather';
 
 import './Profile.css';
 import { Text } from '../../components';
@@ -104,7 +105,10 @@ function Profile() {
 
           <div className='profile__social'>
             <h2>Social Media Links</h2>
-            <div className='profile__social--link'>Twitter</div>
+            <div className='profile__social--link'>
+              <Twitter strokeWidth={1} className='icons' />
+              Twitter
+            </div>
             <div className='profile__social--link'>Instagram</div>
             <div className='profile__social--link'>Messenger</div>
           </div>

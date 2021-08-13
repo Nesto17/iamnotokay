@@ -4,11 +4,6 @@
     TYPOGRAPHY 
 *******************/
 
-h1 {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-}
-
 h2 {
   font-size: 1rem;
   font-weight: 400;
@@ -68,6 +63,11 @@ section {
 
 .profile-left__container {
   padding: 1.5rem 3rem;
+
+  h1 {
+    margin-bottom: 5px;
+    @include responsive-font(lg);
+  }
 }
 
 .profile__social {
@@ -118,6 +118,12 @@ section {
   border-radius: 999px;
   margin-bottom: 10px;
   text-align: center;
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  fill: #000;
 }
 
 // STORY CARD

@@ -2,11 +2,6 @@
 /******************* 
     TYPOGRAPHY 
 *******************/
-h1 {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-}
-
 h2 {
   font-size: 1rem;
   font-weight: 400;
@@ -65,6 +60,28 @@ section {
 
 .profile-left__container {
   padding: 1.5rem 3rem;
+}
+
+.profile-left__container h1 {
+  margin-bottom: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile-left__container h1 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-left__container h1 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-left__container h1 {
+    font-size: 30px;
+  }
 }
 
 .profile__social {
@@ -126,6 +143,12 @@ section {
   border-radius: 999px;
   margin-bottom: 10px;
   text-align: center;
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  fill: #000;
 }
 
 .story-list__card {
