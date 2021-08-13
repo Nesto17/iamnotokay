@@ -2,7 +2,7 @@
 
 .story__wrapper {
     width: 100vw;
-    min-height: $height-page;
+    height: $height-page;
     color: $white;
 
     display: flex;
@@ -10,11 +10,12 @@
     align-items: stretch;
 
     position: relative;
+    overflow: hidden;
     z-index: map-get($zindexes, normal);
 }
 
 .story__container {
-    // @include responsive-padding-standard(x);
+    @include scrollbar;
     @include responsive-padding-standard(y, 40px, 40px, 40px);
 
     width: 100%;
@@ -22,6 +23,7 @@
 
     display: grid;
     place-items: center;
+    overflow-y: scroll;
 }
 
 .story__container--inner {
@@ -148,13 +150,18 @@
     textarea {
         @include input-box-translucent(70px, 100%, sm);
         @include responsive-padding-standard(x, 10px, 20px, 20px);
-        @include responsive-padding-standard(y, 10px, 20px, 20px);
+        // @include responsive-padding-standard(y, 10px, 20px, 20px);
         @include scrollbar;
 
         resize: none;
         flex-grow: 1;
         border: 0;
+
+        font-weight: map-get($fontweight, extralight);
         line-height: 28px;
+
+        padding-top: 20px;
+        padding-bottom: 60px;
 
         &:focus {
             outline: 0;

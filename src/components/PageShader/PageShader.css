@@ -1,0 +1,12 @@
+@use 'sass:meta';
+.shader {
+  width: 100%;
+  background: black;
+  -webkit-box-shadow: 0px -20px 100px 30px black;
+          box-shadow: 0px -20px 100px 30px black;
+  position: fixed;
+  bottom: -20%;
+  left: 0;
+  z-index: 75;
+}
+/*# sourceMappingURL=PageShader.css.map */

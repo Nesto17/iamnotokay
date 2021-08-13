@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams, useLocation } from 'react-router';
-import { Maximize2, Heart, Share, Flag } from 'react-feather';
+import { Heart, Share, Flag } from 'react-feather';
 import moment from 'moment';
+import '@tensorflow/tfjs';
 
 import './Story.css';
 import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 import * as ROUTE from '../../constants/routes';
-import { Text, Modal } from '../../components';
+import { Text, Modal, PageShader } from '../../components';
+
+const toxicity = require('@tensorflow-models/toxicity');
+const toxicityTreshold = 0.9;
 
 const Story = () => {
     const { firebase, FieldValue } = useContext(FirebaseContext);
@@ -16,6 +20,18 @@ const Story = () => {
     const { data: storyData } = location?.state || {};
     const [isReplying, setIsReplying] = useState(false);
     const [replyValue, setReplyValue] = useState('');
+
+    useEffect(() => {
+        console.log('Loading starts');
+        toxicity.load(toxicityTreshold).then((model) => {
+            console.log('Loading ends');
+            const sentences = ["You're a fucking bitch"];
+
+            model.classify(sentences).then((predictions) => {
+                console.log(predictions, 'PREDICTIONS');
+            });
+        });
+    }, []);
 
     const triggerReply = () => {
         setIsReplying(!isReplying);
@@ -62,7 +78,7 @@ const Story = () => {
                 style={{ transform: isReplying ? 'translateX(300%)' : 'translateX(0)' }}
             >
                 <div onClick={triggerReply} className="story__reply--trigger">
-                    Send a support
+                    Write my support
                 </div>
                 <div className="story__icons">
                     <Heart
@@ -85,6 +101,7 @@ const Story = () => {
                     />
                 </div>
             </div>
+            {/* <PageShader height="30%" /> */}
         </div>
     );
 };
