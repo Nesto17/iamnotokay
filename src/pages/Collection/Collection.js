@@ -8,7 +8,7 @@ import FirebaseContext from '../../utils/firebaseContext';
 import UserContext from '../../utils/userContext';
 import * as ROUTE from '../../constants/routes';
 import sampleStories from '../../constants/sampleStories';
-import { Text, Modal, PageLoader } from '../../components';
+import { Text, Modal, PageLoader, PageShader } from '../../components';
 
 const Collection = () => {
     const { firebase, FieldValue, FieldPath } = useContext(FirebaseContext);
@@ -74,6 +74,7 @@ const Collection = () => {
                     )}`}</p>
                 </div>
                 <p className="collection__desc">{currentStory?.story}</p>
+                <PageShader height="30%" position="absolute" />
             </div>
             <div className="collection__buttons">
                 {currentIndex > 0 && (

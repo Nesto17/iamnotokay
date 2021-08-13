@@ -11,6 +11,7 @@ import * as ROUTE from '../../constants/routes';
 import { Text, Modal, PageShader } from '../../components';
 
 const toxicity = require('@tensorflow-models/toxicity');
+
 const toxicityTreshold = 0.9;
 
 const Story = () => {
