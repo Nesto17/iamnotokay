@@ -2,7 +2,7 @@
 
 .homepage__wrapper {
     width: 100vw;
-    height: calc(100vh - 90px);
+    height: $height-page;
 
     display: flex;
     flex-direction: column;
@@ -18,6 +18,13 @@
 
     display: grid;
     place-items: center;
+}
+
+.homepage__hero--title {
+    @include responsive-font(hero);
+
+    color: $white;
+    font-family: $font-handwriting;
 }
 
 .homepage__buttons {

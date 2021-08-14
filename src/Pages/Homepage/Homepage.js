@@ -22,23 +22,23 @@ const Homepage = () => {
         }
     };
 
-    const goToRead = () => {
+    const goToCollection = () => {
         if (!user) {
             history.push({
                 pathname: ROUTE.LOG_IN,
-                state: { intendedPage: '/r/collections' },
+                state: { intendedPage: ROUTE.COLLECTION },
             });
         } else {
-            history.push('/r/collections');
+            history.push(ROUTE.COLLECTION);
         }
     };
 
     return (
         <div className="homepage__wrapper">
             <div className="homepage__hero">
-                <Text textType="handwriting" textSize="hero">
+                <h1 className="homepage__hero--title">
                     Your pain is temporary
-                </Text>
+                </h1>
             </div>
             <div className="homepage__buttons">
                 <button
@@ -51,7 +51,7 @@ const Homepage = () => {
                 <button
                     type="button"
                     className="homepage__button"
-                    onClick={goToRead}
+                    onClick={goToCollection}
                 >
                     I want read people's stories
                 </button>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { User } from 'react-feather';
 
-import './Navbar.scss';
+import './Navbar.css';
 import * as ROUTE from '../../constants/routes';
 import { Text } from '..';
 import UserContext from '../../utils/userContext';
@@ -33,7 +33,6 @@ function Navbar() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(location);
         return null;
     };
 
@@ -51,11 +50,9 @@ function Navbar() {
     return (
         <div className="navbar__container">
             <Link to={ROUTE.HOMEPAGE}>
-                <Text textSize="lg" textType="handwriting">
-                    {`I am not okay`}
-                </Text>
+                <h1 className="navbar__logo">I am not okay</h1>
             </Link>
-            {location.pathname[1] === ROUTE.READ[1] && (
+            {/* {location.pathname[1] === ROUTE.STORY[1] && (
                 <form className="navbar__searchbar" onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -64,7 +61,7 @@ function Navbar() {
                         placeholder="Search by tag"
                     />
                 </form>
-            )}
+            )} */}
             <User
                 className="navbar__profile"
                 onClick={goToProfile}
