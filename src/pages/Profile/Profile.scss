@@ -4,38 +4,14 @@
     TYPOGRAPHY 
 *******************/
 
-h2 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-h3 {
-  font-size: 1rem;
-}
-
-p {
-  font-size: 0.7rem;
-}
-
 .profile__email {
   font-size: 0.7rem;
   margin-bottom: 1.5rem;
 }
 
-.profile__social > h2 {
+.profile__label {
+  @include responsive-font(bigsm);
   margin-bottom: 10px;
-}
-
-.profile-middle__header > h2 {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.story-list__card > h3 {
-  font-weight: 400;
-  font-size: 0.8rem;
-
-  margin-top: 10px;
 }
 
 /******************* 
@@ -48,12 +24,27 @@ main {
 
   display: grid;
   grid-template-columns: 0.3fr 0.26fr 0.44fr;
-  color: #fff;
+  color: $white;
 }
 
 section {
   border: 1px solid white;
   border-bottom: 0;
+
+  h1 {
+    margin-bottom: 5px;
+    @include responsive-font(lg);
+  }
+
+  h2,
+  p {
+    @include responsive-font(sm);
+    font-weight: 400;
+  }
+
+  h3 {
+    @include responsive-font(md);
+  }
 }
 
 .profile__left {
@@ -63,11 +54,6 @@ section {
 
 .profile-left__container {
   padding: 1.5rem 3rem;
-
-  h1 {
-    margin-bottom: 5px;
-    @include responsive-font(lg);
-  }
 }
 
 .profile__social {
@@ -86,19 +72,23 @@ section {
   justify-content: center;
   align-items: center;
 
-  border-top: 1px solid #fff;
-}
+  border-top: 1px solid $white;
 
-.profile__edit:hover {
-  background: #fff;
-  color: #000;
+  &:hover {
+    background: $white;
+    color: $black;
+  }
 }
-
 .profile-middle__header {
   min-height: 70px;
   padding: 1rem;
   display: flex;
   align-items: center;
+
+  h2 {
+    font-weight: 700;
+    @include responsive-font(lg);
+  }
 }
 
 .story-list {
@@ -111,27 +101,51 @@ section {
 
 // SOCIAL LINKS
 .profile__social--link {
-  background: #fff;
-  color: #000;
   width: 50%;
   padding: 0.3rem 0.7rem;
+  background: $white;
+  color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   margin-bottom: 10px;
-  text-align: center;
+  @include responsive-font(sm);
 }
 
 .icons {
   width: 20px;
   height: 20px;
-  fill: #000;
+  fill: $black;
+  margin-right: 0.8rem;
+}
+
+.icon--white {
+  fill: $white;
+}
+
+.icon--small {
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
 }
 
 // STORY CARD
 
 .story-list__card {
-  border: 1px solid #fff;
+  border: 1px solid $white;
   border-width: 1px 0 1px 0;
   padding: 1rem;
+
+  h2 {
+    @include responsive-font(md);
+  }
+
+  h3 {
+    font-weight: 400;
+    @include responsive-font(sm);
+    margin-top: 10px;
+  }
 }
 
 .story-list__card:not(:first-child) {
@@ -146,7 +160,7 @@ section {
 }
 
 .story--link {
-  width: 50px;
+  width: 60px;
   font-size: 0.7rem;
   margin-bottom: 0;
   margin-right: 10px;

@@ -6,7 +6,15 @@ import * as ROUTE from './constants/routes';
 import useAuth from './hooks/useAuth';
 import UserContext from './utils/userContext';
 
-import { Homepage, Profile, Login, Register, Write, Story, Collection } from './pages';
+import {
+  Homepage,
+  Profile,
+  Login,
+  Register,
+  Write,
+  Story,
+  Collection,
+} from './Pages';
 import { Navbar } from './components';
 
 function App() {

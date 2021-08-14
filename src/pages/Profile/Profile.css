@@ -2,37 +2,31 @@
 /******************* 
     TYPOGRAPHY 
 *******************/
-h2 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-h3 {
-  font-size: 1rem;
-}
-
-p {
-  font-size: 0.7rem;
-}
-
 .profile__email {
   font-size: 0.7rem;
   margin-bottom: 1.5rem;
 }
 
-.profile__social > h2 {
+.profile__label {
   margin-bottom: 10px;
 }
 
-.profile-middle__header > h2 {
-  font-weight: 700;
-  font-size: 1.5rem;
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__label {
+    font-size: 13px;
+  }
 }
 
-.story-list__card > h3 {
-  font-weight: 400;
-  font-size: 0.8rem;
-  margin-top: 10px;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__label {
+    font-size: 18px;
+  }
 }
 
 /******************* 
@@ -45,12 +39,78 @@ main {
   display: grid;
   -ms-grid-columns: 0.3fr 0.26fr 0.44fr;
       grid-template-columns: 0.3fr 0.26fr 0.44fr;
-  color: #fff;
+  color: white;
 }
 
 section {
   border: 1px solid white;
   border-bottom: 0;
+}
+
+section h1 {
+  margin-bottom: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  section h1 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  section h1 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section h1 {
+    font-size: 30px;
+  }
+}
+
+section h2,
+section p {
+  font-weight: 400;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  section h2,
+  section p {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  section h2,
+  section p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section h2,
+  section p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  section h3 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  section h3 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section h3 {
+    font-size: 22px;
+  }
 }
 
 .profile__left {
@@ -60,28 +120,6 @@ section {
 
 .profile-left__container {
   padding: 1.5rem 3rem;
-}
-
-.profile-left__container h1 {
-  margin-bottom: 5px;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .profile-left__container h1 {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .profile-left__container h1 {
-    font-size: 26px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .profile-left__container h1 {
-    font-size: 30px;
-  }
 }
 
 .profile__social {
@@ -109,12 +147,12 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px solid #fff;
+  border-top: 1px solid white;
 }
 
 .profile__edit:hover {
-  background: #fff;
-  color: #000;
+  background: white;
+  color: black;
 }
 
 .profile-middle__header {
@@ -128,6 +166,28 @@ section {
           align-items: center;
 }
 
+.profile-middle__header h2 {
+  font-weight: 700;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile-middle__header h2 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-middle__header h2 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-middle__header h2 {
+    font-size: 30px;
+  }
+}
+
 .story-list {
   border: 0;
 }
@@ -136,25 +196,103 @@ section {
     COMPONENTS 
 *******************/
 .profile__social--link {
-  background: #fff;
-  color: #000;
   width: 50%;
   padding: 0.3rem 0.7rem;
+  background: white;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-radius: 999px;
   margin-bottom: 10px;
-  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__social--link {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__social--link {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__social--link {
+    font-size: 14px;
+  }
 }
 
 .icons {
   width: 20px;
   height: 20px;
-  fill: #000;
+  fill: black;
+  margin-right: 0.8rem;
+}
+
+.icon--white {
+  fill: white;
+}
+
+.icon--small {
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
 }
 
 .story-list__card {
-  border: 1px solid #fff;
+  border: 1px solid white;
   border-width: 1px 0 1px 0;
   padding: 1rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .story-list__card h2 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .story-list__card h2 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-list__card h2 {
+    font-size: 22px;
+  }
+}
+
+.story-list__card h3 {
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .story-list__card h3 {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .story-list__card h3 {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-list__card h3 {
+    font-size: 14px;
+  }
 }
 
 .story-list__card:not(:first-child) {
@@ -173,7 +311,7 @@ section {
 }
 
 .story--link {
-  width: 50px;
+  width: 60px;
   font-size: 0.7rem;
   margin-bottom: 0;
   margin-right: 10px;

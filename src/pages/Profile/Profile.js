@@ -1,7 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Twitter } from 'react-feather';
+import {
+  Twitter,
+  Instagram,
+  Facebook,
+  MessageCircle,
+  Heart,
+} from 'react-feather';
 
 import './Profile.css';
 import { Text } from '../../components';
@@ -104,16 +110,22 @@ function Profile() {
           </p>
 
           <div className='profile__social'>
-            <h2>Social Media Links</h2>
+            <h2 className='profile__label'>Social Media Links</h2>
             <div className='profile__social--link'>
               <Twitter strokeWidth={1} className='icons' />
               Twitter
             </div>
-            <div className='profile__social--link'>Instagram</div>
-            <div className='profile__social--link'>Messenger</div>
+            <div className='profile__social--link'>
+              <Instagram strokeWidth={2} className='icons icon--white' />
+              Instagram
+            </div>
+            <div className='profile__social--link'>
+              <Facebook strokeWidth={1} className='icons' />
+              Messenger
+            </div>
           </div>
 
-          <h2>Joined at</h2>
+          <h2 className='profile__label'>Joined at</h2>
           <h3>28 April 2021</h3>
         </div>
 
@@ -128,24 +140,39 @@ function Profile() {
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
           <div className='story-list__card'>
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
           <div className='story-list__card'>
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
         </section>
