@@ -2,19 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams, useLocation } from 'react-router';
 import { Heart, Share, Flag } from 'react-feather';
 import moment from 'moment';
-import '@tensorflow/tfjs';
 
 import './Story.css';
-import FirebaseContext from '../../utils/firebaseContext';
-import UserContext from '../../utils/userContext';
+import { FirebaseContext } from '../../contexts';
+import { ToxicityModelContext } from '../../contexts';
 import * as ROUTE from '../../constants/routes';
 import { Text, Modal, PageShader } from '../../components';
 
-const toxicity = require('@tensorflow-models/toxicity');
-
-const toxicityTreshold = 0.9;
-
 const Story = () => {
+    const toxicityModel = useContext(ToxicityModelContext);
     const { firebase, FieldValue } = useContext(FirebaseContext);
     const history = useHistory();
     const location = useLocation();
@@ -22,20 +18,19 @@ const Story = () => {
     const [isReplying, setIsReplying] = useState(false);
     const [replyValue, setReplyValue] = useState('');
 
-    useEffect(() => {
-        console.log('Loading starts');
-        toxicity.load(toxicityTreshold).then((model) => {
-            console.log('Loading ends');
-            const sentences = ["You're a fucking bitch"];
-
-            model.classify(sentences).then((predictions) => {
-                console.log(predictions, 'PREDICTIONS');
-            });
-        });
-    }, []);
-
     const triggerReply = () => {
         setIsReplying(!isReplying);
+    };
+
+    const classifyToxicity = () => {
+        if (Object.keys(toxicityModel).length > 0) {
+            toxicityModel.classify(replyValue).then((predictions) => {
+                console.log(predictions);
+            });
+        } else {
+            // MAKE LOGIC HERE LATER
+            return null;
+        }
     };
 
     return (
@@ -70,7 +65,7 @@ const Story = () => {
                     data-gramm_editor={false}
                 />
                 <div className="story__reply--buttons">
-                    <div>Send my support</div>
+                    <div onClick={classifyToxicity}>Send my support</div>
                     <div onClick={triggerReply}>X</div>
                 </div>
             </div>

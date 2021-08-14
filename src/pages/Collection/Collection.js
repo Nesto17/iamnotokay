@@ -4,8 +4,8 @@ import { Maximize2, Heart, Share, Flag } from 'react-feather';
 import moment from 'moment';
 
 import './Collection.css';
-import FirebaseContext from '../../utils/firebaseContext';
-import UserContext from '../../utils/userContext';
+import FirebaseContext from '../../contexts/firebaseContext';
+import UserContext from '../../contexts/userContext';
 import * as ROUTE from '../../constants/routes';
 import sampleStories from '../../constants/sampleStories';
 import { Text, Modal, PageLoader, PageShader } from '../../components';
