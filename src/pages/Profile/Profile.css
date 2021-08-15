@@ -3,8 +3,25 @@
     TYPOGRAPHY 
 *******************/
 .profile__email {
-  font-size: 0.7rem;
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__email {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__email {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__email {
+    font-size: 14px;
+  }
 }
 
 .profile__label {
@@ -150,6 +167,24 @@ section p {
   border-top: 1px solid white;
 }
 
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__edit {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__edit {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__edit {
+    font-size: 22px;
+  }
+}
+
 .profile__edit:hover {
   background: white;
   color: black;
@@ -196,8 +231,8 @@ section p {
     COMPONENTS 
 *******************/
 .profile__social--link {
-  width: 50%;
-  padding: 0.3rem 0.7rem;
+  width: 40%;
+  padding: 0.7rem;
   background: white;
   color: black;
   display: -webkit-box;

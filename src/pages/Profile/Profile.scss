@@ -5,8 +5,9 @@
 *******************/
 
 .profile__email {
-  font-size: 0.7rem;
-  margin-bottom: 1.5rem;
+  @include responsive-font(sm);
+  color: red;
+  margin-bottom: 2.5rem;
 }
 
 .profile__label {
@@ -71,6 +72,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  @include responsive-font(md);
 
   border-top: 1px solid $white;
 
@@ -101,8 +103,8 @@ section {
 
 // SOCIAL LINKS
 .profile__social--link {
-  width: 50%;
-  padding: 0.3rem 0.7rem;
+  width: min(40%, 150px);
+  padding: 0.7rem;
   background: $white;
   color: $black;
   display: flex;

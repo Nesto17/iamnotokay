@@ -31,6 +31,17 @@ $fontweight: (
 );
 
 @mixin responsive-font($fontsize: sm) {
+  @if ($fontsize == extrasm) {
+    @include media('>=phone', '<tablet') {
+      font-size: 9px;
+    }
+    @include media('>=tablet', '<desktop') {
+      font-size: 10px;
+    }
+    @include media('>=desktop') {
+      font-size: 12px;
+    }
+  }
   @if ($fontsize == sm) {
     @include media('>=phone', '<tablet') {
       font-size: map-get($fontsize-sm, mobile);
