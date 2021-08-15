@@ -68,9 +68,9 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #333;
   @include responsive-font(md);
 
-  border-top: 1px solid #333;
   &:hover {
     background: $white;
     color: $black;
@@ -98,11 +98,69 @@ section {
   border: 0;
 }
 
+// Right Section
+
+.story__container {
+  padding: 5rem;
+  max-height: 320px;
+  overflow: hidden;
+  border-bottom: 1px solid #333;
+
+  h2 {
+    margin-bottom: 2rem;
+    @include responsive-font(lg);
+  }
+
+  p {
+    @include responsive-font(sm);
+    line-height: 2;
+  }
+}
+
+.btn__container {
+  height: 87px;
+  display: flex;
+  flex-direction: row;
+
+  button {
+    flex: 1;
+    border: 0;
+    background: $black;
+    color: $white;
+    @include responsive-font(md);
+
+    &:hover {
+      color: $black;
+      background: $white;
+    }
+  }
+
+  button:nth-child(2) {
+    border-right: 1px solid #333;
+    border-left: 1px solid #333;
+  }
+}
+
+.profile__replies {
+  border-top: 1px solid #333;
+}
+
+.profile-right__header {
+  padding: 2rem;
+  border-bottom: 1px solid #333;
+  @include responsive-font(lg);
+}
+
+.replies-list {
+  overflow-y: scroll;
+}
+
 /******************* 
     COMPONENTS 
 *******************/
 
 // SOCIAL LINKS
+
 .profile__social--link {
   width: 40%;
   // width: min(40%, 150px);
@@ -156,7 +214,8 @@ section {
   border-top: 0;
 }
 
-// STORY LINKS s
+// STORY LINKS
+
 .story--links {
   flex-direction: row;
   justify-content: flex-start;
@@ -165,8 +224,35 @@ section {
 
 .story--link {
   width: 60px;
-  // font-size: 0.7rem;
-  @include responsive-font(extrasm);
   margin-bottom: 0;
   margin-right: 10px;
+  @include responsive-font(extrasm);
+}
+
+// REPLY LIST CARD
+
+.replies-list__card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #333;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    @include responsive-font(md);
+  }
+
+  h3 {
+    @include responsive-font(sm);
+  }
+
+  p {
+    text-align: justify;
+  }
 }
