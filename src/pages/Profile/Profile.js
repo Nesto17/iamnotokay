@@ -177,7 +177,27 @@ function Profile() {
           </div>
         </section>
       </section>
-      <section className='profile__right'>Ini section kanan</section>
+      <section className='profile__right'>
+        <section className='profile__story'>
+          <div className='story__container'>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis
+              voluptatem cupiditate architecto sit ratione? Unde fuga animi
+              soluta. Quaerat quibusdam velit minus harum aliquam illo,
+              praesentium autem labore ad, porro non! Repellendus, dolore porro
+              libero eum error repellat ipsam deleniti quod, autem magni
+              deserunt! Sint molestias quas cum excepturi amet.
+            </p>
+          </div>
+          <div className='btn__container'>
+            <button className='read'>Read</button>
+            <button className='delete'>Delete</button>
+            <button className='edit'>Edit</button>
+          </div>
+        </section>
+        <section className='profile__replies'></section>
+      </section>
     </main>
   );
 }
