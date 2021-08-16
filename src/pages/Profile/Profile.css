@@ -52,6 +52,7 @@
 main {
   width: 100vw;
   height: calc(100vh - 90px);
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0.3fr 0.26fr 0.44fr;
@@ -230,8 +231,8 @@ section p {
 .story__container {
   padding: 5rem;
   max-height: 320px;
-  overflow: hidden;
   border-bottom: 1px solid #333;
+  overflow: hidden;
 }
 
 .story__container h2 {
@@ -258,6 +259,8 @@ section p {
 
 .story__container p {
   line-height: 2;
+  overflow-y: hidden;
+  max-height: 120px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -276,6 +279,10 @@ section p {
   .story__container p {
     font-size: 14px;
   }
+}
+
+#container_story {
+  padding-bottom: 0;
 }
 
 .btn__container {
@@ -327,6 +334,8 @@ section p {
 }
 
 .profile__replies {
+  max-height: 400px;
+  overflow-y: scroll;
   border-top: 1px solid #333;
 }
 
@@ -351,10 +360,6 @@ section p {
   .profile-right__header {
     font-size: 30px;
   }
-}
-
-.replies-list {
-  overflow-y: scroll;
 }
 
 /******************* 

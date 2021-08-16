@@ -21,6 +21,7 @@
 main {
   width: 100vw;
   height: $height-page;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: 0.3fr 0.26fr 0.44fr;
@@ -100,11 +101,15 @@ section {
 
 // Right Section
 
+.profile__right {
+  // height: 100%;
+}
+
 .story__container {
   padding: 5rem;
   max-height: 320px;
-  overflow: hidden;
   border-bottom: 1px solid #333;
+  overflow: hidden;
 
   h2 {
     margin-bottom: 2rem;
@@ -114,7 +119,13 @@ section {
   p {
     @include responsive-font(sm);
     line-height: 2;
+    overflow-y: hidden;
+    max-height: 120px;
   }
+}
+
+#container_story {
+  padding-bottom: 0;
 }
 
 .btn__container {
@@ -142,6 +153,8 @@ section {
 }
 
 .profile__replies {
+  max-height: 400px;
+  overflow-y: scroll;
   border-top: 1px solid #333;
 }
 
@@ -149,10 +162,6 @@ section {
   padding: 2rem;
   border-bottom: 1px solid #333;
   @include responsive-font(lg);
-}
-
-.replies-list {
-  overflow-y: scroll;
 }
 
 /******************* 
@@ -163,7 +172,6 @@ section {
 
 .profile__social--link {
   width: 40%;
-  // width: min(40%, 150px);
   padding: 0.7rem;
   background: $white;
   color: $black;

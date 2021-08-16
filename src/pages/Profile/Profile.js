@@ -179,7 +179,7 @@ function Profile() {
       </section>
       <section className='profile__right'>
         <section className='profile__story'>
-          <div className='story__container'>
+          <div className='story__container' id='container_story'>
             <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. A
@@ -214,6 +214,18 @@ function Profile() {
             <div className='replies-list__card'>
               <div>
                 <h2>Jane Doe</h2>
+                <h3>May 3, 2021</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                sit veritatis quae est itaque corporis quos labore dolorum.
+                Optio dolore perspiciatis inventore suscipit vel natus nihil
+                ducimus assumenda quaerat voluptates.
+              </p>
+            </div>
+            <div className='replies-list__card'>
+              <div>
+                <h2>Joseph Haryanto</h2>
                 <h3>May 3, 2021</h3>
               </div>
               <p>
