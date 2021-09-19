@@ -116,6 +116,7 @@
   margin-left: 15px;
   cursor: pointer;
   fill: transparent;
+  position: relative;
   -webkit-transition: fill 200ms;
   transition: fill 200ms;
 }

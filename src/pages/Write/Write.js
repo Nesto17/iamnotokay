@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
 
 import './Write.css';
-import FirebaseContext from '../../utils/firebaseContext';
-import UserContext from '../../utils/userContext';
+import FirebaseContext from '../../contexts/firebaseContext';
+import UserContext from '../../contexts/userContext';
 import * as ROUTE from '../../constants/routes';
 import { Text, Modal } from '../../components';
 import useScreenSize from '../../hooks/useScreenSize';

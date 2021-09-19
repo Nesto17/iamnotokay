@@ -12,8 +12,8 @@ import {
 import './Profile.css';
 import { Text } from '../../components';
 import * as ROUTE from '../../constants/routes';
-import FirebaseContext from '../../utils/firebaseContext';
-import UserContext from '../../utils/userContext';
+import FirebaseContext from '../../contexts/firebaseContext';
+import UserContext from '../../contexts/userContext';
 
 function Profile() {
   const { firebase } = useContext(FirebaseContext);

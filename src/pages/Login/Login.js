@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router';
 import { Eye, EyeOff } from 'react-feather';
 
 import './Login.css';
-import FirebaseContext from '../../utils/firebaseContext';
+import FirebaseContext from '../../contexts/firebaseContext';
 import * as ROUTE from '../../constants/routes';
 import { Text } from '../../components';
 

@@ -2,9 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './Homepage.css';
-import FirebaseContext from '../../utils/firebaseContext';
+import FirebaseContext from '../../contexts/firebaseContext';
 import { Text } from '../../components';
-import UserContext from '../../utils/userContext';
+import UserContext from '../../contexts/userContext';
 import * as ROUTE from '../../constants/routes';
 
 const Homepage = () => {
