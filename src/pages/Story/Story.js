@@ -4,8 +4,7 @@ import { Heart, Share2, Flag } from 'react-feather';
 import moment from 'moment';
 
 import './Story.css';
-import { FirebaseContext } from '../../contexts';
-import { ToxicityModelContext } from '../../contexts';
+import { FirebaseContext, ToxicityModelContext } from '../../contexts';
 import * as ROUTE from '../../constants/routes';
 import { Text, Modal, PageShader } from '../../components';
 
