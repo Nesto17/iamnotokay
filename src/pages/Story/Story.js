@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams, useLocation } from 'react-router';
-import { Heart, Share, Flag } from 'react-feather';
+import { Heart, Share2, Flag } from 'react-feather';
 import moment from 'moment';
 
 import './Story.css';
@@ -14,9 +14,18 @@ const Story = () => {
     const { firebase, FieldValue } = useContext(FirebaseContext);
     const history = useHistory();
     const location = useLocation();
-    const { data: storyData } = location?.state || {};
+    const { data: storyData, isInstantReplying } = location?.state || {};
+
     const [isReplying, setIsReplying] = useState(false);
     const [replyValue, setReplyValue] = useState('');
+    const [isToxic, setIsToxic] = useState(false);
+    const [alertVisible, setAlertVisible] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsReplying(isInstantReplying);
+        }, 300);
+    }, []);
 
     const triggerReply = () => {
         setIsReplying(!isReplying);
@@ -25,13 +34,18 @@ const Story = () => {
     const classifyToxicity = () => {
         if (Object.keys(toxicityModel).length > 0) {
             toxicityModel.classify(replyValue).then((predictions) => {
-                console.log(predictions);
+                // console.log(predictions);
+                predictions.map((item, index) => {
+                    console.log(item.label, item.results[0].match);
+                });
             });
         } else {
             // MAKE LOGIC HERE LATER
             return null;
         }
     };
+
+    const submitReply = () => {};
 
     return (
         <div className="story__wrapper">
@@ -83,7 +97,7 @@ const Story = () => {
                         color="#FFF"
                         strokeWidth={1}
                     />
-                    <Share
+                    <Share2
                         className="story__icons--item"
                         onClick={() => console.log('THIS IS SHARE ICON')}
                         color="#FFF"

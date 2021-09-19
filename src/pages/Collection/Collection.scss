@@ -43,8 +43,20 @@
         margin-left: 15px;
         cursor: pointer;
         fill: transparent;
+        position: relative;
 
         transition: fill 200ms;
+
+        // &::after {
+        //     content: '';
+        //     background: $white;
+        //     width: 80px;
+        //     height: 20px;
+
+        //     position: relative;
+        //     left: 0;
+        //     bottom: 0;
+        // }
 
         &:hover {
             fill: $white;
