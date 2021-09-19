@@ -1,7 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Twitter } from 'react-feather';
+import {
+  Twitter,
+  Instagram,
+  Facebook,
+  MessageCircle,
+  Heart,
+} from 'react-feather';
 
 import './Profile.css';
 import { Text } from '../../components';
@@ -104,16 +110,22 @@ function Profile() {
           </p>
 
           <div className='profile__social'>
-            <h2>Social Media Links</h2>
+            <h2 className='profile__label'>Social Media Links</h2>
             <div className='profile__social--link'>
               <Twitter strokeWidth={1} className='icons' />
               Twitter
             </div>
-            <div className='profile__social--link'>Instagram</div>
-            <div className='profile__social--link'>Messenger</div>
+            <div className='profile__social--link'>
+              <Instagram strokeWidth={2} className='icons icon--white' />
+              Instagram
+            </div>
+            <div className='profile__social--link'>
+              <Facebook strokeWidth={1} className='icons' />
+              Messenger
+            </div>
           </div>
 
-          <h2>Joined at</h2>
+          <h2 className='profile__label'>Joined at</h2>
           <h3>28 April 2021</h3>
         </div>
 
@@ -128,29 +140,116 @@ function Profile() {
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
           <div className='story-list__card'>
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
           <div className='story-list__card'>
             <h2>Lorem ipsum dolor sit amet</h2>
             <h3>May 3, 2021</h3>
             <div className='profile__social story--links'>
-              <div className='profile__social--link story--link'>8</div>
-              <div className='profile__social--link story--link'>32</div>
+              <div className='profile__social--link story--link'>
+                <MessageCircle strokeWidth={1} className='icons icon--small' />8
+              </div>
+              <div className='profile__social--link story--link'>
+                <Heart strokeWidth={1} className='icons icon--small' />
+                32
+              </div>
             </div>
           </div>
         </section>
       </section>
-      <section className='profile__right'>Ini section kanan</section>
+      <section className='profile__right'>
+        <section className='profile__story'>
+          <div className='story__container' id='container_story'>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. A
+              assumenda, quisquam harum eum fuga voluptas laboriosam ipsa
+              voluptatem cumque optio vel, ea sed impedit facere molestias cum.
+              Rem, labore itaque? Ratione unde beatae nulla cum neque facere
+              quidem obcaecati earum veritatis, doloribus qui in culpa ab
+              voluptates vitae sequi voluptatibus accusantium tempore aliquam
+              assumenda. Similique ex ipsam, suscipit fugiat necessitatibus
+              harum possimus. Cumque velit a explicabo veniam unde repellendus,
+              totam dolorum facere asperiores, tempora, fugit perspiciatis
+              voluptatibus quibusdam iusto accusamus magnam nostrum laudantium
+              libero eum suscipit! Debitis magni, impedit omnis inventore
+              eveniet in quae ipsam ad consequuntur eaque quidem minima eius
+              atque nulla deserunt totam tempora. Eligendi laudantium quos
+              explicabo. Minus voluptatum quidem qui eos excepturi, a dolores
+              inventore laudantium vitae impedit nemo est atque, obcaecati
+              commodi placeat repudiandae. Odio voluptates quo libero nostrum?
+              Perferendis dolorem rerum, harum ullam odit quia vel alias, quos
+              ipsum cumque culpa cum, architecto nesciunt.
+            </p>
+          </div>
+          <div className='btn__container'>
+            <button className='read'>Read</button>
+            <button className='delete'>Delete</button>
+            <button className='edit'>Edit</button>
+          </div>
+        </section>
+        <section className='profile__replies'>
+          <div className='profile-right__header'>Replies</div>
+          <section className='replies-list'>
+            <div className='replies-list__card'>
+              <div>
+                <h2>Jane Doe</h2>
+                <h3>May 3, 2021</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                sit veritatis quae est itaque corporis quos labore dolorum.
+                Optio dolore perspiciatis inventore suscipit vel natus nihil
+                ducimus assumenda quaerat voluptates.
+              </p>
+            </div>
+            <div className='replies-list__card'>
+              <div>
+                <h2>Joseph Haryanto</h2>
+                <h3>May 3, 2021</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                sit veritatis quae est itaque corporis quos labore dolorum.
+                Optio dolore perspiciatis inventore suscipit vel natus nihil
+                ducimus assumenda quaerat voluptates.
+              </p>
+            </div>
+            <div className='replies-list__card'>
+              <div>
+                <h2>Joseph Haryanto</h2>
+                <h3>May 3, 2021</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+                sit veritatis quae est itaque corporis quos labore dolorum.
+                Optio dolore perspiciatis inventore suscipit vel natus nihil
+                ducimus assumenda quaerat voluptates.
+              </p>
+            </div>
+          </section>
+        </section>
+      </section>
     </main>
   );
 }
