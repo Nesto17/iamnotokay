@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { Maximize2, Heart, Share, Flag } from 'react-feather';
+import { Maximize2, Heart, Share2, Flag, MessageSquare } from 'react-feather';
 import moment from 'moment';
 
 import './Collection.css';
-import FirebaseContext from '../../utils/firebaseContext';
-import UserContext from '../../utils/userContext';
+import FirebaseContext from '../../contexts/firebaseContext';
+import UserContext from '../../contexts/userContext';
 import * as ROUTE from '../../constants/routes';
 import sampleStories from '../../constants/sampleStories';
 import { Text, Modal, PageLoader, PageShader } from '../../components';
@@ -29,8 +29,11 @@ const Collection = () => {
         setCurrentStory(stories[currentIndex]);
     }, [stories, currentIndex]);
 
-    const expandStory = () => {
-        history.push({ pathname: `/s/${currentStory?.id}`, state: { data: currentStory } });
+    const expandStory = (isInstantReplying) => {
+        history.push({
+            pathname: `/s/${currentStory?.id}`,
+            state: { data: currentStory, isInstantReplying },
+        });
     };
 
     return (
@@ -39,26 +42,26 @@ const Collection = () => {
                 <div className="collection__container--upper">
                     <h2 className="collection__title">{currentStory?.title}</h2>
                     <div className="collection__icons">
-                        <Maximize2
-                            className="collection__icons--item"
-                            onClick={() => expandStory()}
+                        <MessageSquare
+                            className="collection__icons--item icon__message"
+                            onClick={() => expandStory(true)}
                             color="#FFF"
                             strokeWidth={1}
                         />
                         <Heart
-                            className="collection__icons--item"
+                            className="collection__icons--item icon__heart"
                             onClick={() => console.log('THIS IS LIKE ICON')}
                             color="#FFF"
                             strokeWidth={1}
                         />
-                        <Share
-                            className="collection__icons--item"
+                        <Share2
+                            className="collection__icons--item icon__share"
                             onClick={() => console.log('THIS IS SHARE ICON')}
                             color="#FFF"
                             strokeWidth={1}
                         />
                         <Flag
-                            className="collection__icons--item"
+                            className="collection__icons--item icon__flag"
                             onClick={() => console.log('THIS IS FLAG ICON')}
                             color="#FFF"
                             strokeWidth={1}
@@ -86,7 +89,11 @@ const Collection = () => {
                         Previous
                     </button>
                 )}
-                <button onClick={expandStory} type="button" className="collection__open">
+                <button
+                    onClick={() => expandStory(false)}
+                    type="button"
+                    className="collection__open"
+                >
                     Read this story
                 </button>
                 {currentIndex < stories.length - 1 && (

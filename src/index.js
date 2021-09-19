@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { firebase, FieldValue, FieldPath } from './utils/firebase';
-import FirebaseContext from './utils/firebaseContext';
+import FirebaseContext from './contexts/firebaseContext';
 import App from './App';
 
 ReactDOM.render(

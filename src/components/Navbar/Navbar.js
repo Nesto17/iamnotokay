@@ -5,7 +5,7 @@ import { User } from 'react-feather';
 import './Navbar.css';
 import * as ROUTE from '../../constants/routes';
 import { Text } from '..';
-import UserContext from '../../utils/userContext';
+import UserContext from '../../contexts/userContext';
 
 function Navbar() {
     const [searchValue, setSearchValue] = useState('');
