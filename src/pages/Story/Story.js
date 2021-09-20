@@ -33,18 +33,20 @@ const Story = () => {
     const classifyToxicity = () => {
         if (Object.keys(toxicityModel).length > 0) {
             toxicityModel.classify(replyValue).then((predictions) => {
-                // console.log(predictions);
+                console.log('---------')
                 predictions.map((item, index) => {
                     console.log(item.label, item.results[0].match);
+                    
                 });
             });
         } else {
-            // MAKE LOGIC HERE LATER
             return null;
         }
     };
 
-    const submitReply = () => {};
+    const submitReply = () => {
+        classifyToxicity();
+    };
 
     return (
         <div className="story__wrapper">
@@ -61,7 +63,7 @@ const Story = () => {
                     </div>
                     <p className="story__desc">{storyData?.story}</p>
                 </div>
-                <div className="story__spacer"></div>
+                {/* <div className="story__spacer"></div> */}
             </div>
             <div
                 className="story__reply"
@@ -110,6 +112,12 @@ const Story = () => {
                     />
                 </div>
             </div>
+            <Modal
+                title="We detect a presence of toxicity in your message"
+                description="Hate doesn't have a room in our society. Please revise your intention and come back better."
+                buttons={[{ text: "I'm sorry", onClick: () => setAlertVisible(false) }]}
+                visible={alertVisible}
+            />
             {/* <PageShader height="30%" /> */}
         </div>
     );

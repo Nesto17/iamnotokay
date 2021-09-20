@@ -166,7 +166,7 @@
 .story__desc {
   margin-top: 50px;
   font-weight: 200;
-  line-height: 30px;
+  line-height: 40px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
