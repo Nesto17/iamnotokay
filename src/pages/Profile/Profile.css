@@ -49,7 +49,7 @@
 /******************* 
     LAYOUT 
 *******************/
-main {
+.profile__wrapper {
   width: 100vw;
   height: calc(100vh - 90px);
   overflow: hidden;
@@ -60,68 +60,68 @@ main {
   color: white;
 }
 
-section h1 {
+.profile__wrapper h1 {
   margin-bottom: 5px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  section h1 {
+  .profile__wrapper h1 {
     font-size: 22px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  section h1 {
+  .profile__wrapper h1 {
     font-size: 26px;
   }
 }
 
 @media (min-width: 1024px) {
-  section h1 {
+  .profile__wrapper h1 {
     font-size: 30px;
   }
 }
 
-section h2,
-section p {
+.profile__wrapper h2,
+.profile__wrapper p {
   font-weight: 400;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  section h2,
-  section p {
+  .profile__wrapper h2,
+  .profile__wrapper p {
     font-size: 11px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  section h2,
-  section p {
+  .profile__wrapper h2,
+  .profile__wrapper p {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px) {
-  section h2,
-  section p {
+  .profile__wrapper h2,
+  .profile__wrapper p {
     font-size: 14px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  section h3 {
+  .profile__wrapper h3 {
     font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  section h3 {
+  .profile__wrapper h3 {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  section h3 {
+  .profile__wrapper h3 {
     font-size: 22px;
   }
 }
@@ -224,59 +224,59 @@ section p {
   }
 }
 
-.story-list {
+.profile__story--list {
   border: 0;
 }
 
-.story__container {
+.profile__story--container {
   padding: 5rem;
   max-height: 320px;
   border-bottom: 1px solid #333;
   overflow: hidden;
 }
 
-.story__container h2 {
+.profile__story--container h2 {
   margin-bottom: 2rem;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .story__container h2 {
+  .profile__story--container h2 {
     font-size: 22px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .story__container h2 {
+  .profile__story--container h2 {
     font-size: 26px;
   }
 }
 
 @media (min-width: 1024px) {
-  .story__container h2 {
+  .profile__story--container h2 {
     font-size: 30px;
   }
 }
 
-.story__container p {
+.profile__story--container p {
   line-height: 2;
   overflow-y: hidden;
   max-height: 120px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .story__container p {
+  .profile__story--container p {
     font-size: 11px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .story__container p {
+  .profile__story--container p {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px) {
-  .story__container p {
+  .profile__story--container p {
     font-size: 14px;
   }
 }
@@ -418,58 +418,58 @@ section p {
   margin-right: 0.5rem;
 }
 
-.story-list__card {
+.profile__story--list--card {
   border: 1px solid #333;
   border-width: 1px 0 1px 0;
   padding: 1rem;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .story-list__card h2 {
+  .profile__story--list--card h2 {
     font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .story-list__card h2 {
+  .profile__story--list--card h2 {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  .story-list__card h2 {
+  .profile__story--list--card h2 {
     font-size: 22px;
   }
 }
 
-.story-list__card h3 {
+.profile__story--list--card h3 {
   font-weight: 400;
   margin-top: 10px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .story-list__card h3 {
+  .profile__story--list--card h3 {
     font-size: 11px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .story-list__card h3 {
+  .profile__story--list--card h3 {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px) {
-  .story-list__card h3 {
+  .profile__story--list--card h3 {
     font-size: 14px;
   }
 }
 
-.story-list__card:not(:first-child) {
+.profile__story--list--card:not(:first-child) {
   border-top: 0;
 }
 
-.story--links {
+.profile__profile__story--links {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -480,31 +480,31 @@ section p {
   margin-bottom: 0;
 }
 
-.story--link {
+.profile__story--link {
   width: 60px;
   margin-bottom: 0;
   margin-right: 10px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .story--link {
+  .profile__story--link {
     font-size: 9px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .story--link {
+  .profile__story--link {
     font-size: 10px;
   }
 }
 
 @media (min-width: 1024px) {
-  .story--link {
+  .profile__story--link {
     font-size: 12px;
   }
 }
 
-.replies-list__card {
+.profile__replies--list {
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -516,7 +516,7 @@ section p {
   border-bottom: 1px solid #333;
 }
 
-.replies-list__card div {
+.profile__replies--list div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -530,42 +530,42 @@ section p {
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .replies-list__card h2 {
+  .profile__replies--list h2 {
     font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .replies-list__card h2 {
+  .profile__replies--list h2 {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  .replies-list__card h2 {
+  .profile__replies--list h2 {
     font-size: 22px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .replies-list__card h3 {
+  .profile__replies--list h3 {
     font-size: 11px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .replies-list__card h3 {
+  .profile__replies--list h3 {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px) {
-  .replies-list__card h3 {
+  .profile__replies--list h3 {
     font-size: 14px;
   }
 }
 
-.replies-list__card p {
+.profile__replies--list p {
   text-align: justify;
 }
 /*# sourceMappingURL=Profile.css.map */

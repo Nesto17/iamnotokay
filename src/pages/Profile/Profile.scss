@@ -18,7 +18,7 @@
     LAYOUT 
 *******************/
 
-main {
+.profile__wrapper {
   width: 100vw;
   height: $height-page;
   overflow: hidden;
@@ -26,9 +26,7 @@ main {
   display: grid;
   grid-template-columns: 0.3fr 0.26fr 0.44fr;
   color: $white;
-}
 
-section {
   h1 {
     margin-bottom: 5px;
     @include responsive-font(lg);
@@ -95,12 +93,12 @@ section {
   }
 }
 
-.story-list {
+.profile__story--list {
   border: 0;
 }
 
 // Right Section
-.story__container {
+.profile__story--container {
   padding: 5rem;
   max-height: 320px;
   border-bottom: 1px solid #333;
@@ -197,7 +195,7 @@ section {
 
 // STORY CARD
 
-.story-list__card {
+.profile__story--list--card {
   border: 1px solid #333;
   border-width: 1px 0 1px 0;
   padding: 1rem;
@@ -213,19 +211,19 @@ section {
   }
 }
 
-.story-list__card:not(:first-child) {
+.profile__story--list--card:not(:first-child) {
   border-top: 0;
 }
 
 // STORY LINKS
 
-.story--links {
+.profile__profile__story--links {
   flex-direction: row;
   justify-content: flex-start;
   margin-bottom: 0;
 }
 
-.story--link {
+.profile__story--link {
   width: 60px;
   margin-bottom: 0;
   margin-right: 10px;
@@ -234,7 +232,7 @@ section {
 
 // REPLY LIST CARD
 
-.replies-list__card {
+.profile__replies--list {
   padding: 2rem;
   display: flex;
   flex-direction: column;
