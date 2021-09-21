@@ -13,7 +13,7 @@ import {
   Write,
   Story,
   Collection,
-} from './pages';
+} from './Pages';
 import { Navbar } from './components';
 
 function App() {

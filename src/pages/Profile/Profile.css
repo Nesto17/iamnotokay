@@ -334,7 +334,7 @@
 }
 
 .profile__replies {
-  max-height: 400px;
+  height: 180px;
   overflow-y: scroll;
   border-top: 1px solid #333;
 }
@@ -504,7 +504,7 @@
   }
 }
 
-.profile__replies--list {
+.profile__replies--list--card {
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -516,7 +516,7 @@
   border-bottom: 1px solid #333;
 }
 
-.profile__replies--list div {
+.profile__replies--list--card div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -530,42 +530,42 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .profile__replies--list h2 {
+  .profile__replies--list--card h2 {
     font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .profile__replies--list h2 {
+  .profile__replies--list--card h2 {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  .profile__replies--list h2 {
+  .profile__replies--list--card h2 {
     font-size: 22px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .profile__replies--list h3 {
+  .profile__replies--list--card h3 {
     font-size: 11px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .profile__replies--list h3 {
+  .profile__replies--list--card h3 {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px) {
-  .profile__replies--list h3 {
+  .profile__replies--list--card h3 {
     font-size: 14px;
   }
 }
 
-.profile__replies--list p {
+.profile__replies--list--card p {
   text-align: justify;
 }
 /*# sourceMappingURL=Profile.css.map */

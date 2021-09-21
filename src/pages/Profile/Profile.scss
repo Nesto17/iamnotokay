@@ -146,7 +146,7 @@
 }
 
 .profile__replies {
-  max-height: 400px;
+  height: 180px;
   overflow-y: scroll;
   border-top: 1px solid #333;
 }
@@ -216,7 +216,6 @@
 }
 
 // STORY LINKS
-
 .profile__profile__story--links {
   flex-direction: row;
   justify-content: flex-start;
@@ -231,8 +230,7 @@
 }
 
 // REPLY LIST CARD
-
-.profile__replies--list {
+.profile__replies--list--card {
   padding: 2rem;
   display: flex;
   flex-direction: column;
