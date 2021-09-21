@@ -42,10 +42,7 @@
     .collection__icons--item {
         margin-left: 15px;
         cursor: pointer;
-        fill: transparent;
         position: relative;
-
-        transition: fill 200ms;
 
         // &::after {
         //     content: '';
@@ -58,8 +55,52 @@
         //     bottom: 0;
         // }
 
-        &:hover {
+        * {
+            fill: transparent;
+            transition: fill 150ms;
+        }
+
+        &:hover * {
             fill: $white;
+        }
+    }
+
+    .icon__message {
+        &::before {
+            @include button-popup('reply to this story', 40px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 300ms;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    .icon__share {
+        &::before {
+            @include button-popup('copy to clipboard', 40px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 300ms;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    .icon__flag {
+        &::before {
+            @include button-popup('report', 40px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 300ms;
+        }
+
+        &:hover::before {
+            opacity: 1;
         }
     }
 }
@@ -87,7 +128,7 @@
     margin-top: 30px;
 
     font-weight: map-get($fontweight, extralight);
-    line-height: 30px;
+    line-height: 40px;
 }
 
 .collection__buttons {
