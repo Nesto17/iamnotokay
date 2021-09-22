@@ -52,7 +52,6 @@
 .profile__wrapper {
   width: 100vw;
   height: calc(100vh - 90px);
-  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 0.3fr 0.26fr 0.44fr;
@@ -228,9 +227,26 @@
   border: 0;
 }
 
+.profile__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 100vh;
+}
+
+.profile__story,
+.profile__replies {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 .profile__story--container {
-  padding: 5rem;
-  max-height: 320px;
+  padding: 3rem 5rem;
   border-bottom: 1px solid #333;
   overflow: hidden;
 }
@@ -334,7 +350,7 @@
 }
 
 .profile__replies {
-  height: 180px;
+  height: 100%;
   overflow-y: scroll;
   border-top: 1px solid #333;
 }

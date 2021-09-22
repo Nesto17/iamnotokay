@@ -21,7 +21,7 @@
 .profile__wrapper {
   width: 100vw;
   height: $height-page;
-  overflow: hidden;
+  // overflow: hidden;
 
   display: grid;
   grid-template-columns: 0.3fr 0.26fr 0.44fr;
@@ -98,9 +98,20 @@
 }
 
 // Right Section
+.profile__right {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.profile__story,
+.profile__replies {
+  flex: 1;
+}
+
 .profile__story--container {
-  padding: 5rem;
-  max-height: 320px;
+  padding: 3rem 5rem;
+  // max-height: 320px;
   border-bottom: 1px solid #333;
   overflow: hidden;
 
@@ -146,7 +157,8 @@
 }
 
 .profile__replies {
-  height: 180px;
+  // height: 180px;
+  height: 100%;
   overflow-y: scroll;
   border-top: 1px solid #333;
 }

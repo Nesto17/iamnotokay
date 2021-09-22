@@ -21,6 +21,7 @@ const Profile = () => {
   const history = useHistory();
   const db = firebase.firestore();
   const [stories, setStories] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     getStoriesId();
@@ -28,10 +29,12 @@ const Profile = () => {
 
   const getStoriesId = () => {
     db.collection('account')
-      .doc(user.uid)
+      .doc('IPM5IT9pLdgYeAAQ6lR8eWQrrln2')
       .get()
       .then((doc) => {
         if (doc.exists) {
+          console.log('data', doc.data());
+          setUserData(doc.data());
           doc.data().post_created.forEach((storyId) => {
             getStoriesData(storyId);
           });
@@ -71,6 +74,31 @@ const Profile = () => {
       });
   };
 
+  const timeConverter = (timestamp) => {
+    var a = new Date(timestamp * 1000);
+    var months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    var year = a.getFullYear();
+    // console.log('date', a);
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var time = date + ' ' + month + ' ' + year;
+    return time;
+    // return timestamp.toDate();
+  };
+
   // const renderStories = () => {
   //   console.log('stories', stories);
   //   stories.map((story, index) => {
@@ -99,15 +127,9 @@ const Profile = () => {
     <div className='profile__wrapper'>
       <section className='profile__left'>
         <div className='profile-left__container'>
-          <h1>John Doe</h1>
-          <h2 className='profile__email'>johndoe@email.com</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            porta, libero vel porttitor accumsan, nibh ex luctus metus, non
-            aliquam quam quam quis arcu. Phasellus sit. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Vivamus porta, libero vel
-            porttitor accumsan, nibh ex luctus metus, non
-          </p>
+          <h1>{userData && userData.fullname}</h1>
+          <h2 className='profile__email'>{userData && userData.email}</h2>
+          <p>{userData && userData.bio}</p>
 
           <div className='profile__social'>
             <h2 className='profile__label'>Social Media Links</h2>
@@ -126,7 +148,7 @@ const Profile = () => {
           </div>
 
           <h2 className='profile__label'>Joined at</h2>
-          <h3>28 April 2021</h3>
+          <h3>{userData && userData.joined.toDate().toDateString()}</h3>
         </div>
 
         <div className='profile__edit'>Edit your profile</div>
