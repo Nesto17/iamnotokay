@@ -74,31 +74,6 @@ const Profile = () => {
       });
   };
 
-  const timeConverter = (timestamp) => {
-    var a = new Date(timestamp * 1000);
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    var year = a.getFullYear();
-    // console.log('date', a);
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-    var time = date + ' ' + month + ' ' + year;
-    return time;
-    // return timestamp.toDate();
-  };
-
   // const renderStories = () => {
   //   console.log('stories', stories);
   //   stories.map((story, index) => {
@@ -133,25 +108,45 @@ const Profile = () => {
 
           <div className='profile__social'>
             <h2 className='profile__label'>Social Media Links</h2>
-            <div className='profile__social--link'>
-              <Twitter strokeWidth={1} className='icons' />
-              Twitter
-            </div>
-            <div className='profile__social--link'>
-              <Instagram strokeWidth={2} className='icons icon--white' />
-              Instagram
-            </div>
-            <div className='profile__social--link'>
-              <Facebook strokeWidth={1} className='icons' />
-              Messenger
-            </div>
+            {userData && (
+              <a
+                href={userData.socialMedia.twitter}
+                target='_blank'
+                className='profile__social--link'
+              >
+                <Twitter strokeWidth={1} className='icons' />
+                Twitter
+              </a>
+            )}
+            {userData && (
+              <a
+                href={userData.socialMedia.instagram}
+                target='_blank'
+                className='profile__social--link'
+              >
+                <Instagram strokeWidth={2} className='icons icon--white' />
+                Instagram
+              </a>
+            )}
+            {userData && (
+              <a
+                href={userData.socialMedia.facebook}
+                target='_blank'
+                className='profile__social--link'
+              >
+                <Facebook strokeWidth={1} className='icons' />
+                Messenger
+              </a>
+            )}
           </div>
 
           <h2 className='profile__label'>Joined at</h2>
-          <h3>{userData && userData.joined.toDate().toDateString()}</h3>
+          <h3>
+            {userData && userData.joined.toDate().toDateString().substring(4)}
+          </h3>
         </div>
 
-        <div className='profile__edit'>Edit your profile</div>
+        {/* <div className='profile__edit'>Edit your profile</div> */}
       </section>
       <section className='profile__middle'>
         <div className='profile-middle__header'>
