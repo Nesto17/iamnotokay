@@ -219,7 +219,7 @@ const Profile = () => {
               ipsum cumque culpa cum, architecto nesciunt.
             </p>
           </div>
-          <div className='btn__container'>
+          <div className='profile__button--container'>
             <button className='read'>Read</button>
             <button className='delete'>Delete</button>
             <button className='edit'>Edit</button>

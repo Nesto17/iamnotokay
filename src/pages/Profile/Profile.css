@@ -83,7 +83,8 @@
 
 .profile__wrapper h2,
 .profile__wrapper p {
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 25px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -185,20 +186,35 @@
   color: black;
 }
 
-.profile__middle {
-  border-right: 1px solid #333;
-  border-left: 1px solid #333;
-}
-
 .profile-middle__header {
   min-height: 70px;
-  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile-middle__header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-middle__header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-middle__header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .profile-middle__header h2 {
@@ -223,6 +239,11 @@
   }
 }
 
+.profile__middle {
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+}
+
 .profile__story--list {
   border: 0;
 }
@@ -245,38 +266,99 @@
           flex: 1;
 }
 
+.profile__story {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .profile__story--container {
-  padding: 3rem 5rem;
-  border-bottom: 1px solid #333;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__story--container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__story--container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__story--container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__story--container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__story--container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__story--container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 .profile__story--container h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
   .profile__story--container h2 {
-    font-size: 22px;
+    font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .profile__story--container h2 {
-    font-size: 26px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
   .profile__story--container h2 {
-    font-size: 30px;
+    font-size: 22px;
   }
 }
 
 .profile__story--container p {
-  line-height: 2;
+  font-weight: 300;
   overflow-y: hidden;
-  max-height: 120px;
+  max-height: 190px;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -301,8 +383,8 @@
   padding-bottom: 0;
 }
 
-.btn__container {
-  height: 87px;
+.profile__button--container {
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,41 +392,44 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  border-top: 1px solid #333;
 }
 
-.btn__container button {
+.profile__button--container button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   border: 0;
   background: black;
+  font-weight: 300;
   color: white;
+  cursor: pointer;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .btn__container button {
+  .profile__button--container button {
     font-size: 16px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .btn__container button {
+  .profile__button--container button {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
-  .btn__container button {
+  .profile__button--container button {
     font-size: 22px;
   }
 }
 
-.btn__container button:hover {
+.profile__button--container button:hover {
   color: black;
   background: white;
 }
 
-.btn__container button:nth-child(2) {
+.profile__button--container button:nth-child(2) {
   border-right: 1px solid #333;
   border-left: 1px solid #333;
 }
@@ -382,7 +467,7 @@
     COMPONENTS 
 *******************/
 .profile__social--link {
-  width: 40%;
+  width: 160px;
   padding: 0.7rem;
   background: white;
   color: black;
@@ -397,6 +482,8 @@
           justify-content: center;
   border-radius: 999px;
   margin-bottom: 10px;
+  -webkit-transition: background 200ms, color 200ms;
+  transition: background 200ms, color 200ms;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -415,6 +502,11 @@
   .profile__social--link {
     font-size: 14px;
   }
+}
+
+.profile__social--link:hover {
+  background: black;
+  color: white;
 }
 
 .icons {
@@ -437,7 +529,53 @@
 .profile__story--list--card {
   border: 1px solid #333;
   border-width: 1px 0 1px 0;
-  padding: 1rem;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__story--list--card {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__story--list--card {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__story--list--card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .profile__story--list--card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile__story--list--card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__story--list--card {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.profile__story--list--card h2 {
+  font-weight: 600;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -459,7 +597,7 @@
 }
 
 .profile__story--list--card h3 {
-  font-weight: 400;
+  font-weight: 300;
   margin-top: 10px;
 }
 
